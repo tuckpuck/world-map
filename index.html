@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="flex justify-center flex-col text-center header py-2">
+      <h1 class="text-3xl pt-5 pb-3 block">World Photo Project</h1>
+      <h2 class="text-2xl pb-5 pt-3 block">A map of places I've been, built with D3.js.</h2>
+    </div>
+    <div id="map" class="map-styles"></div>
+    <div class="country-info">
+    <img id="country-flag" src="#"></img>
+    <p id="country-name"></p>
+    <p id="country-capital"></p>
+    <p id="country-currency"></p>
+    <p id="country-language"></p>
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+    <script type="text/javascript" src="./js/datamaps-hi-res.min.js"></script>
+    <script type="text/javascript" src="./js/country-config.js"></script>
+  </body>
+</html>

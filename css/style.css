@@ -1,0 +1,42 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+body {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  line-height: 1.4;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+.country-info {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.header {
+  background-color: #444;
+  color: #f7fafc;
+}
+
+.map-styles {
+  height: 125vh;
+  /* height: 666vh;
+  width: 1000vh; */
+  background-color: #f7fafc;
+}
+
+#country-flag {
+  width: 60px;
+}
