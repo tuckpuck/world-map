@@ -1,455 +1,279 @@
-let data = [
-  { name: "Afghanistan", alpha3: "AFG", code: "004", visited: false },
-  { name: "Åland Islands", alpha3: "ALA", code: "248", visited: false },
-  { name: "Albania", alpha3: "ALB", code: "008", visited: false },
-  { name: "Algeria", alpha3: "DZA", code: "012", visited: false },
-  { name: "American Samoa", alpha3: "ASM", code: "016", visited: false },
-  { name: "Andorra", alpha3: "AND", code: "020", visited: false },
-  { name: "Angola", alpha3: "AGO", code: "024", visited: false },
-  { name: "Anguilla", alpha3: "AIA", code: "660", visited: false },
-  { name: "Antarctica", alpha3: "ATA", code: "010", visited: false },
-  { name: "Antigua and Barbuda", alpha3: "ATG", code: "028", visited: false },
-  { name: "Argentina", alpha3: "ARG", code: "032", visited: false },
-  { name: "Armenia", alpha3: "ARM", code: "051", visited: false },
-  { name: "Aruba", alpha3: "ABW", code: "533", visited: false },
-  { name: "Australia", alpha3: "AUS", code: "036", visited: false },
-  { name: "Austria", alpha3: "AUT", code: "040", visited: true },
-  { name: "Azerbaijan", alpha3: "AZE", code: "031", visited: false },
-  { name: "Bahamas", alpha3: "BHS", code: "044", visited: false },
-  { name: "Bahrain", alpha3: "BHR", code: "048", visited: false },
-  { name: "Bangladesh", alpha3: "BGD", code: "050", visited: false },
-  { name: "Barbados", alpha3: "BRB", code: "052", visited: false },
-  { name: "Belarus", alpha3: "BLR", code: "112", visited: false },
-  { name: "Belgium", alpha3: "BEL", code: "056", visited: true },
-  { name: "Belize", alpha3: "BLZ", code: "084", visited: true },
-  { name: "Benin", alpha3: "BEN", code: "204", visited: false },
-  { name: "Bermuda", alpha3: "BMU", code: "060", visited: false },
-  { name: "Bhutan", alpha3: "BTN", code: "064", visited: false },
-  {
-    name: "Bolivia (Plurinational State of)",
-    alpha3: "BOL",
-    code: "068",
-    visited: false
-  },
-  {
-    name: "Bonaire, Sint Eustatius and Saba",
-    alpha3: "BES",
-    code: "535",
-    visited: false
-  },
-  {
-    name: "Bosnia and Herzegovina",
-    alpha3: "BIH",
-    code: "070",
-    visited: false
-  },
-  { name: "Botswana", alpha3: "BWA", code: "072", visited: false },
-  { name: "Bouvet Island", alpha3: "BVT", code: "074", visited: false },
-  { name: "Brazil", alpha3: "BRA", code: "076", visited: false },
-  {
-    name: "British Indian Ocean Territory",
-    alpha3: "IOT",
-    code: "086",
-    visited: false
-  },
-  { name: "Brunei Darussalam", alpha3: "BRN", code: "096", visited: false },
-  { name: "Bulgaria", alpha3: "BGR", code: "100", visited: true },
-  { name: "Burkina Faso", alpha3: "BFA", code: "854", visited: false },
-  { name: "Burundi", alpha3: "BDI", code: "108", visited: false },
-  { name: "Cabo Verde", alpha3: "CPV", code: "132", visited: false },
-  { name: "Cambodia", alpha3: "KHM", code: "116", visited: false },
-  { name: "Cameroon", alpha3: "CMR", code: "120", visited: false },
-  { name: "Canada", alpha3: "CAN", code: "124", visited: true },
-  { name: "Cayman Islands", alpha3: "CYM", code: "136", visited: false },
-  {
-    name: "Central African Republic",
-    alpha3: "CAF",
-    code: "140",
-    visited: false
-  },
-  { name: "Chad", alpha3: "TCD", code: "148", visited: false },
-  { name: "Chile", alpha3: "CHL", code: "152", visited: false },
-  { name: "China", alpha3: "CHN", code: "156", visited: true },
-  { name: "Christmas Island", alpha3: "CXR", code: "162", visited: false },
-  {
-    name: "Cocos (Keeling) Islands",
-    alpha3: "CCK",
-    code: "166",
-    visited: false
-  },
-  { name: "Colombia", alpha3: "COL", code: "170", visited: false },
-  { name: "Comoros", alpha3: "COM", code: "174", visited: false },
-  { name: "Congo", alpha3: "COG", code: "178", visited: false },
-  {
-    name: "Congo, Democratic Republic of the",
-    alpha3: "COD",
-    code: "180",
-    visited: false
-  },
-  { name: "Cook Islands", alpha3: "COK", code: "184", visited: false },
-  { name: "Costa Rica", alpha3: "CRI", code: "188", visited: false },
-  { name: "Côte d'Ivoire", alpha3: "CIV", code: "384", visited: false },
-  { name: "Croatia", alpha3: "HRV", code: "191", visited: true },
-  { name: "Cuba", alpha3: "CUB", code: "192", visited: false },
-  { name: "Curaçao", alpha3: "CUW", code: "531", visited: false },
-  { name: "Cyprus", alpha3: "CYP", code: "196", visited: false },
-  { name: "Czechia", alpha3: "CZE", code: "203", visited: true },
-  { name: "Denmark", alpha3: "DNK", code: "208", visited: false },
-  { name: "Djibouti", alpha3: "DJI", code: "262", visited: false },
-  { name: "Dominica", alpha3: "DMA", code: "212", visited: false },
-  { name: "Dominican Republic", alpha3: "DOM", code: "214", visited: false },
-  { name: "Ecuador", alpha3: "ECU", code: "218", visited: false },
-  { name: "Egypt", alpha3: "EGY", code: "818", visited: true },
-  { name: "El Salvador", alpha3: "SLV", code: "222", visited: false },
-  { name: "Equatorial Guinea", alpha3: "GNQ", code: "226", visited: false },
-  { name: "Eritrea", alpha3: "ERI", code: "232", visited: false },
-  { name: "Estonia", alpha3: "EST", code: "233", visited: false },
-  { name: "Eswatini", alpha3: "SWZ", code: "748", visited: false },
-  { name: "Ethiopia", alpha3: "ETH", code: "231", visited: false },
-  {
-    name: "Falkland Islands (Malvinas)",
-    alpha3: "FLK",
-    code: "238",
-    visited: false
-  },
-  { name: "Faroe Islands", alpha3: "FRO", code: "234", visited: false },
-  { name: "Fiji", alpha3: "FJI", code: "242", visited: true },
-  { name: "Finland", alpha3: "FIN", code: "246", visited: false },
-  { name: "France", alpha3: "FRA", code: "250", visited: true },
-  { name: "French Guiana", alpha3: "GUF", code: "254", visited: false },
-  { name: "French Polynesia", alpha3: "PYF", code: "258", visited: false },
-  {
-    name: "French Southern Territories",
-    alpha3: "ATF",
-    code: "260",
-    visited: false
-  },
-  { name: "Gabon", alpha3: "GAB", code: "266", visited: false },
-  { name: "Gambia", alpha3: "GMB", code: "270", visited: false },
-  { name: "Georgia", alpha3: "GEO", code: "268", visited: false },
-  { name: "Germany", alpha3: "DEU", code: "276", visited: true },
-  { name: "Ghana", alpha3: "GHA", code: "288", visited: false },
-  { name: "Gibraltar", alpha3: "GIB", code: "292", visited: false },
-  { name: "Greece", alpha3: "GRC", code: "300", visited: true },
-  { name: "Greenland", alpha3: "GRL", code: "304", visited: false },
-  { name: "Grenada", alpha3: "GRD", code: "308", visited: false },
-  { name: "Guadeloupe", alpha3: "GLP", code: "312", visited: false },
-  { name: "Guam", alpha3: "GUM", code: "316", visited: false },
-  { name: "Guatemala", alpha3: "GTM", code: "320", visited: true },
-  { name: "Guernsey", alpha3: "GGY", code: "831", visited: false },
-  { name: "Guinea", alpha3: "GIN", code: "324", visited: false },
-  { name: "Guinea-Bissau", alpha3: "GNB", code: "624", visited: false },
-  { name: "Guyana", alpha3: "GUY", code: "328", visited: false },
-  { name: "Haiti", alpha3: "HTI", code: "332", visited: false },
-  {
-    name: "Heard Island and McDonald Islands",
-    alpha3: "HMD",
-    code: "334",
-    visited: false
-  },
-  { name: "Holy See", alpha3: "VAT", code: "336", visited: true },
-  { name: "Honduras", alpha3: "HND", code: "340", visited: false },
-  { name: "Hong Kong", alpha3: "HKG", code: "344", visited: false },
-  { name: "Hungary", alpha3: "HUN", code: "348", visited: true },
-  { name: "Iceland", alpha3: "ISL", code: "352", visited: false },
-  { name: "India", alpha3: "IND", code: "356", visited: true },
-  { name: "Indonesia", alpha3: "IDN", code: "360", visited: true },
-  {
-    name: "Iran (Islamic Republic of)",
-    alpha3: "IRN",
-    code: "364",
-    visited: false
-  },
-  { name: "Iraq", alpha3: "IRQ", code: "368", visited: false },
-  { name: "Ireland", alpha3: "IRL", code: "372", visited: false },
-  { name: "Isle of Man", alpha3: "IMN", code: "833", visited: false },
-  { name: "Israel", alpha3: "ISR", code: "376", visited: false },
-  { name: "Italy", alpha3: "ITA", code: "380", visited: true },
-  { name: "Jamaica", alpha3: "JAM", code: "388", visited: false },
-  { name: "Japan", alpha3: "JPN", code: "392", visited: true },
-  { name: "Jersey", alpha3: "JEY", code: "832", visited: false },
-  { name: "Jordan", alpha3: "JOR", code: "400", visited: false },
-  { name: "Kazakhstan", alpha3: "KAZ", code: "398", visited: false },
-  { name: "Kenya", alpha3: "KEN", code: "404", visited: false },
-  { name: "Kiribati", alpha3: "KIR", code: "296", visited: false },
-  {
-    name: "Korea (Democratic People's Republic of)",
-    alpha3: "PRK",
-    code: "408",
-    visited: false
-  },
-  { name: "Korea, Republic of", alpha3: "KOR", code: "410", visited: false },
-  { name: "Kuwait", alpha3: "KWT", code: "414", visited: true },
-  { name: "Kyrgyzstan", alpha3: "KGZ", code: "417", visited: false },
-  {
-    name: "Lao People's Democratic Republic",
-    alpha3: "LAO",
-    code: "418",
-    visited: true
-  },
-  { name: "Latvia", alpha3: "LVA", code: "428", visited: false },
-  { name: "Lebanon", alpha3: "LBN", code: "422", visited: false },
-  { name: "Lesotho", alpha3: "LSO", code: "426", visited: false },
-  { name: "Liberia", alpha3: "LBR", code: "430", visited: false },
-  { name: "Libya", alpha3: "LBY", code: "434", visited: false },
-  { name: "Liechtenstein", alpha3: "LIE", code: "438", visited: false },
-  { name: "Lithuania", alpha3: "LTU", code: "440", visited: false },
-  { name: "Luxembourg", alpha3: "LUX", code: "442", visited: true },
-  { name: "Macao", alpha3: "MAC", code: "446", visited: false },
-  { name: "Madagascar", alpha3: "MDG", code: "450", visited: false },
-  { name: "Malawi", alpha3: "MWI", code: "454", visited: false },
-  { name: "Malaysia", alpha3: "MYS", code: "458", visited: true },
-  { name: "Maldives", alpha3: "MDV", code: "462", visited: false },
-  { name: "Mali", alpha3: "MLI", code: "466", visited: false },
-  { name: "Malta", alpha3: "MLT", code: "470", visited: false },
-  { name: "Marshall Islands", alpha3: "MHL", code: "584", visited: false },
-  { name: "Martinique", alpha3: "MTQ", code: "474", visited: false },
-  { name: "Mauritania", alpha3: "MRT", code: "478", visited: false },
-  { name: "Mauritius", alpha3: "MUS", code: "480", visited: false },
-  { name: "Mayotte", alpha3: "MYT", code: "175", visited: false },
-  { name: "Mexico", alpha3: "MEX", code: "484", visited: true },
-  {
-    name: "Micronesia (Federated States of)",
-    alpha3: "FSM",
-    code: "583",
-    visited: false
-  },
-  { name: "Moldova, Republic of", alpha3: "MDA", code: "498", visited: true },
-  { name: "Monaco", alpha3: "MCO", code: "492", visited: true },
-  { name: "Mongolia", alpha3: "MNG", code: "496", visited: false },
-  { name: "Montenegro", alpha3: "MNE", code: "499", visited: false },
-  { name: "Montserrat", alpha3: "MSR", code: "500", visited: false },
-  { name: "Morocco", alpha3: "MAR", code: "504", visited: true },
-  { name: "Mozambique", alpha3: "MOZ", code: "508", visited: false },
-  { name: "Myanmar", alpha3: "MMR", code: "104", visited: true },
-  { name: "Namibia", alpha3: "NAM", code: "516", visited: false },
-  { name: "Nauru", alpha3: "NRU", code: "520", visited: false },
-  { name: "Nepal", alpha3: "NPL", code: "524", visited: true },
-  { name: "Netherlands", alpha3: "NLD", code: "528", visited: true },
-  { name: "New Caledonia", alpha3: "NCL", code: "540", visited: false },
-  { name: "New Zealand", alpha3: "NZL", code: "554", visited: false },
-  { name: "Nicaragua", alpha3: "NIC", code: "558", visited: false },
-  { name: "Niger", alpha3: "NER", code: "562", visited: false },
-  { name: "Nigeria", alpha3: "NGA", code: "566", visited: false },
-  { name: "Niue", alpha3: "NIU", code: "570", visited: false },
-  { name: "Norfolk Island", alpha3: "NFK", code: "574", visited: false },
-  { name: "North Macedonia", alpha3: "MKD", code: "807", visited: false },
-  {
-    name: "Northern Mariana Islands",
-    alpha3: "MNP",
-    code: "580",
-    visited: false
-  },
-  { name: "Norway", alpha3: "NOR", code: "578", visited: false },
-  { name: "Oman", alpha3: "OMN", code: "512", visited: false },
-  { name: "Pakistan", alpha3: "PAK", code: "586", visited: false },
-  { name: "Palau", alpha3: "PLW", code: "585", visited: false },
-  { name: "Palestine, State of", alpha3: "PSE", code: "275", visited: false },
-  { name: "Panama", alpha3: "PAN", code: "591", visited: false },
-  { name: "Papua New Guinea", alpha3: "PNG", code: "598", visited: false },
-  { name: "Paraguay", alpha3: "PRY", code: "600", visited: false },
-  { name: "Peru", alpha3: "PER", code: "604", visited: false },
-  { name: "Philippines", alpha3: "PHL", code: "608", visited: false },
-  { name: "Pitcairn", alpha3: "PCN", code: "612", visited: false },
-  { name: "Poland", alpha3: "POL", code: "616", visited: true },
-  { name: "Portugal", alpha3: "PRT", code: "620", visited: true },
-  { name: "Puerto Rico", alpha3: "PRI", code: "630", visited: false },
-  { name: "Qatar", alpha3: "QAT", code: "634", visited: false },
-  { name: "Réunion", alpha3: "REU", code: "638", visited: false },
-  { name: "Romania", alpha3: "ROU", code: "642", visited: true },
-  { name: "Russian Federation", alpha3: "RUS", code: "643", visited: false },
-  { name: "Rwanda", alpha3: "RWA", code: "646", visited: false },
-  { name: "Saint Barthélemy", alpha3: "BLM", code: "652", visited: false },
-  {
-    name: "Saint Helena, Ascension and Tristan da Cunha",
-    alpha3: "SHN",
-    code: "654",
-    visited: false
-  },
-  { name: "Saint Kitts and Nevis", alpha3: "KNA", code: "659", visited: false },
-  { name: "Saint Lucia", alpha3: "LCA", code: "662", visited: false },
-  {
-    name: "Saint Martin (French part)",
-    alpha3: "MAF",
-    code: "663",
-    visited: false
-  },
-  {
-    name: "Saint Pierre and Miquelon",
-    alpha3: "SPM",
-    code: "666",
-    visited: false
-  },
-  {
-    name: "Saint Vincent and the Grenadines",
-    alpha3: "VCT",
-    code: "670",
-    visited: false
-  },
-  { name: "Samoa", alpha3: "WSM", code: "882", visited: false },
-  { name: "San Marino", alpha3: "SMR", code: "674", visited: false },
-  { name: "Sao Tome and Principe", alpha3: "STP", code: "678", visited: false },
-  { name: "Saudi Arabia", alpha3: "SAU", code: "682", visited: false },
-  { name: "Senegal", alpha3: "SEN", code: "686", visited: false },
-  { name: "Serbia", alpha3: "SRB", code: "688", visited: false },
-  { name: "Seychelles", alpha3: "SYC", code: "690", visited: false },
-  { name: "Sierra Leone", alpha3: "SLE", code: "694", visited: false },
-  { name: "Singapore", alpha3: "SGP", code: "702", visited: true },
-  {
-    name: "Sint Maarten (Dutch part)",
-    alpha3: "SXM",
-    code: "534",
-    visited: false
-  },
-  { name: "Slovakia", alpha3: "SVK", code: "703", visited: true },
-  { name: "Slovenia", alpha3: "SVN", code: "705", visited: false },
-  { name: "Solomon Islands", alpha3: "SLB", code: "090", visited: false },
-  { name: "Somalia", alpha3: "SOM", code: "706", visited: false },
-  { name: "South Africa", alpha3: "ZAF", code: "710", visited: false },
-  {
-    name: "South Georgia and the South Sandwich Islands",
-    alpha3: "SGS",
-    code: "239",
-    visited: false
-  },
-  { name: "South Sudan", alpha3: "SSD", code: "728", visited: false },
-  { name: "Spain", alpha3: "ESP", code: "724", visited: true },
-  { name: "Sri Lanka", alpha3: "LKA", code: "144", visited: false },
-  { name: "Sudan", alpha3: "SDN", code: "729", visited: false },
-  { name: "Suriname", alpha3: "SUR", code: "740", visited: false },
-  {
-    name: "Svalbard and Jan Mayen",
-    alpha3: "SJM",
-    code: "744",
-    visited: false
-  },
-  { name: "Sweden", alpha3: "SWE", code: "752", visited: true },
-  { name: "Switzerland", alpha3: "CHE", code: "756", visited: false },
-  { name: "Syrian Arab Republic", alpha3: "SYR", code: "760", visited: false },
-  {
-    name: "Taiwan, Province of China",
-    alpha3: "TWN",
-    code: "158",
-    visited: false
-  },
-  { name: "Tajikistan", alpha3: "TJK", code: "762", visited: false },
-  {
-    name: "Tanzania, United Republic of",
-    alpha3: "TZA",
-    code: "834",
-    visited: false
-  },
-  { name: "Thailand", alpha3: "THA", code: "764", visited: true },
-  { name: "Timor-Leste", alpha3: "TLS", code: "626", visited: false },
-  { name: "Togo", alpha3: "TGO", code: "768", visited: false },
-  { name: "Tokelau", alpha3: "TKL", code: "772", visited: false },
-  { name: "Tonga", alpha3: "TON", code: "776", visited: false },
-  { name: "Trinidad and Tobago", alpha3: "TTO", code: "780", visited: false },
-  { name: "Tunisia", alpha3: "TUN", code: "788", visited: false },
-  { name: "Turkey", alpha3: "TUR", code: "792", visited: false },
-  { name: "Turkmenistan", alpha3: "TKM", code: "795", visited: false },
-  {
-    name: "Turks and Caicos Islands",
-    alpha3: "TCA",
-    code: "796",
-    visited: false
-  },
-  { name: "Tuvalu", alpha3: "TUV", code: "798", visited: false },
-  { name: "Uganda", alpha3: "UGA", code: "800", visited: false },
-  { name: "Ukraine", alpha3: "UKR", code: "804", visited: true },
-  { name: "United Arab Emirates", alpha3: "ARE", code: "784", visited: false },
-  {
-    name: "United Kingdom of Great Britain and Northern Ireland",
-    alpha3: "GBR",
-    code: "826",
-    visited: true
-  },
-  {
-    name: "United States of America",
-    alpha3: "USA",
-    code: "840",
-    visited: true
-  },
-  {
-    name: "United States Minor Outlying Islands",
-    alpha3: "UMI",
-    code: "581",
-    visited: false
-  },
-  { name: "Uruguay", alpha3: "URY", code: "858", visited: false },
-  { name: "Uzbekistan", alpha3: "UZB", code: "860", visited: false },
-  { name: "Vanuatu", alpha3: "VUT", code: "548", visited: false },
-  {
-    name: "Venezuela (Bolivarian Republic of)",
-    alpha3: "VEN",
-    code: "862",
-    visited: false
-  },
-  { name: "Vietnam", alpha3: "VNM", code: "704", visited: true },
-  {
-    name: "Virgin Islands (British)",
-    alpha3: "VGB",
-    code: "092",
-    visited: true
-  },
-  { name: "Virgin Islands (U.S.)", alpha3: "VIR", code: "850", visited: false },
-  { name: "Wallis and Futuna", alpha3: "WLF", code: "876", visited: false },
-  { name: "Western Sahara", alpha3: "ESH", code: "732", visited: false },
-  { name: "Yemen", alpha3: "YEM", code: "887", visited: false },
-  { name: "Zambia", alpha3: "ZMB", code: "894", visited: false },
-  { name: "Zimbabwe", alpha3: "ZWE", code: "716", visited: false }
-];
-
-let countriesVisitedCodes = [];
-let countriesVisitedAlphas = [];
-let countriesVisitedNames = [];
-let countryDataObj = {};
-
-data.map((country, index) => {
-  if (country.visited === true) {
-    countriesVisitedCodes.push(country.code);
-    countriesVisitedAlphas.push(country.alpha3);
-    countriesVisitedNames.push(country.name);
-  }
-});
-
-countriesVisitedCodes.forEach((country, index) => {
-  countryDataObj[index] = { fillKey: "visited" };
-});
-
-Object.keys(countryDataObj).forEach(function(ele) {
-  countryDataObj[countriesVisitedAlphas[ele]] = countryDataObj[ele];
-  countryDataObj[countriesVisitedAlphas[ele]].name = countriesVisitedNames[ele];
-  countryDataObj[countriesVisitedAlphas[ele]].code = countriesVisitedCodes[ele];
-  delete countryDataObj[ele];
-});
+let data = {
+  AFG: { fillKey: 2, name: 'Afghanistan', code: '004' },
+  ALA: { fillKey: 2, name: 'Åland Islands', code: '248' },
+  ALB: { fillKey: 2, name: 'Albania', code: '008' },
+  DZA: { fillKey: 2, name: 'Algeria', code: '012' },
+  ASM: { fillKey: 2, name: 'American Samoa', code: '016' },
+  AND: { fillKey: 2, name: 'Andorra', code: '020' },
+  AGO: { fillKey: 2, name: 'Angola', code: '024' },
+  AIA: { fillKey: 2, name: 'Anguilla', code: '660' },
+  ATA: { fillKey: 2, name: 'Antarctica', code: '010' },
+  ATG: { fillKey: 2, name: 'Antigua and Barbuda', code: '028' },
+  ARG: { fillKey: 2, name: 'Argentina', code: '032' },
+  ARM: { fillKey: 2, name: 'Armenia', code: '051' },
+  ABW: { fillKey: 2, name: 'Aruba', code: '533' },
+  AUS: { fillKey: 2, name: 'Australia', code: '036' },
+  AUT: { fillKey: 1, name: 'Austria', code: '040' },
+  AZE: { fillKey: 2, name: 'Azerbaijan', code: '031' },
+  BHS: { fillKey: 2, name: 'Bahamas', code: '044' },
+  BHR: { fillKey: 2, name: 'Bahrain', code: '048' },
+  BGD: { fillKey: 2, name: 'Bangladesh', code: '050' },
+  BRB: { fillKey: 2, name: 'Barbados', code: '052' },
+  BLR: { fillKey: 2, name: 'Belarus', code: '112' },
+  BEL: { fillKey: 1, name: 'Belgium', code: '056' },
+  BLZ: { fillKey: 1, name: 'Belize', code: '084' },
+  BEN: { fillKey: 2, name: 'Benin', code: '204' },
+  BMU: { fillKey: 2, name: 'Bermuda', code: '060' },
+  BTN: { fillKey: 2, name: 'Bhutan', code: '064' },
+  BOL: { fillKey: 2, name: 'Bolivia (Plurinational State of)', code: '068' },
+  BES: { fillKey: 2, name: 'Bonaire, Sint Eustatius and Saba', code: '535' },
+  BIH: { fillKey: 2, name: 'Bosnia and Herzegovina', code: '070' },
+  BWA: { fillKey: 2, name: 'Botswana', code: '072' },
+  BVT: { fillKey: 2, name: 'Bouvet Island', code: '074' },
+  BRA: { fillKey: 2, name: 'Brazil', code: '076' },
+  IOT: { fillKey: 2, name: 'British Indian Ocean Territory', code: '086' },
+  BRN: { fillKey: 2, name: 'Brunei Darussalam', code: '096' },
+  BGR: { fillKey: 1, name: 'Bulgaria', code: '100' },
+  BFA: { fillKey: 2, name: 'Burkina Faso', code: '854' },
+  BDI: { fillKey: 2, name: 'Burundi', code: '108' },
+  CPV: { fillKey: 2, name: 'Cabo Verde', code: '132' },
+  KHM: { fillKey: 2, name: 'Cambodia', code: '116' },
+  CMR: { fillKey: 2, name: 'Cameroon', code: '120' },
+  CAN: { fillKey: 1, name: 'Canada', code: '124' },
+  CYM: { fillKey: 2, name: 'Cayman Islands', code: '136' },
+  CAF: { fillKey: 2, name: 'Central African Republic', code: '140' },
+  TCD: { fillKey: 2, name: 'Chad', code: '148' },
+  CHL: { fillKey: 2, name: 'Chile', code: '152' },
+  CHN: { fillKey: 1, name: 'China', code: '156' },
+  CXR: { fillKey: 2, name: 'Christmas Island', code: '162' },
+  CCK: { fillKey: 2, name: 'Cocos (Keeling) Islands', code: '166' },
+  COL: { fillKey: 2, name: 'Colombia', code: '170' },
+  COM: { fillKey: 2, name: 'Comoros', code: '174' },
+  COG: { fillKey: 2, name: 'Congo', code: '178' },
+  COD: { fillKey: 2, name: 'Congo, Democratic Republic of the', code: '180' },
+  COK: { fillKey: 2, name: 'Cook Islands', code: '184' },
+  CRI: { fillKey: 2, name: 'Costa Rica', code: '188' },
+  CIV: { fillKey: 2, name: "Côte d'Ivoire", code: '384' },
+  HRV: { fillKey: 1, name: 'Croatia', code: '191' },
+  CUB: { fillKey: 2, name: 'Cuba', code: '192' },
+  CUW: { fillKey: 2, name: 'Curaçao', code: '531' },
+  CYP: { fillKey: 2, name: 'Cyprus', code: '196' },
+  CZE: { fillKey: 1, name: 'Czechia', code: '203' },
+  DNK: { fillKey: 2, name: 'Denmark', code: '208' },
+  DJI: { fillKey: 2, name: 'Djibouti', code: '262' },
+  DMA: { fillKey: 2, name: 'Dominica', code: '212' },
+  DOM: { fillKey: 2, name: 'Dominican Republic', code: '214' },
+  ECU: { fillKey: 2, name: 'Ecuador', code: '218' },
+  EGY: { fillKey: 1, name: 'Egypt', code: '818' },
+  SLV: { fillKey: 2, name: 'El Salvador', code: '222' },
+  GNQ: { fillKey: 2, name: 'Equatorial Guinea', code: '226' },
+  ERI: { fillKey: 2, name: 'Eritrea', code: '232' },
+  EST: { fillKey: 2, name: 'Estonia', code: '233' },
+  SWZ: { fillKey: 2, name: 'Eswatini', code: '748' },
+  ETH: { fillKey: 2, name: 'Ethiopia', code: '231' },
+  FLK: { fillKey: 2, name: 'Falkland Islands (Malvinas)', code: '238' },
+  FRO: { fillKey: 2, name: 'Faroe Islands', code: '234' },
+  FJI: { fillKey: 1, name: 'Fiji', code: '242' },
+  FIN: { fillKey: 2, name: 'Finland', code: '246' },
+  FRA: { fillKey: 1, name: 'France', code: '250' },
+  GUF: { fillKey: 2, name: 'French Guiana', code: '254' },
+  PYF: { fillKey: 2, name: 'French Polynesia', code: '258' },
+  ATF: { fillKey: 2, name: 'French Southern Territories', code: '260' },
+  GAB: { fillKey: 2, name: 'Gabon', code: '266' },
+  GMB: { fillKey: 2, name: 'Gambia', code: '270' },
+  GEO: { fillKey: 2, name: 'Georgia', code: '268' },
+  DEU: { fillKey: 1, name: 'Germany', code: '276' },
+  GHA: { fillKey: 2, name: 'Ghana', code: '288' },
+  GIB: { fillKey: 2, name: 'Gibraltar', code: '292' },
+  GRC: { fillKey: 1, name: 'Greece', code: '300' },
+  GRL: { fillKey: 2, name: 'Greenland', code: '304' },
+  GRD: { fillKey: 2, name: 'Grenada', code: '308' },
+  GLP: { fillKey: 2, name: 'Guadeloupe', code: '312' },
+  GUM: { fillKey: 2, name: 'Guam', code: '316' },
+  GTM: { fillKey: 1, name: 'Guatemala', code: '320' },
+  GGY: { fillKey: 2, name: 'Guernsey', code: '831' },
+  GIN: { fillKey: 2, name: 'Guinea', code: '324' },
+  GNB: { fillKey: 2, name: 'Guinea-Bissau', code: '624' },
+  GUY: { fillKey: 2, name: 'Guyana', code: '328' },
+  HTI: { fillKey: 2, name: 'Haiti', code: '332' },
+  HMD: { fillKey: 2, name: 'Heard Island and McDonald Islands', code: '334' },
+  VAT: { fillKey: 1, name: 'Holy See', code: '336' },
+  HND: { fillKey: 2, name: 'Honduras', code: '340' },
+  HKG: { fillKey: 2, name: 'Hong Kong', code: '344' },
+  HUN: { fillKey: 1, name: 'Hungary', code: '348' },
+  ISL: { fillKey: 2, name: 'Iceland', code: '352' },
+  IND: { fillKey: 1, name: 'India', code: '356' },
+  IDN: { fillKey: 1, name: 'Indonesia', code: '360' },
+  IRN: { fillKey: 2, name: 'Iran (Islamic Republic of)', code: '364' },
+  IRQ: { fillKey: 2, name: 'Iraq', code: '368' },
+  IRL: { fillKey: 2, name: 'Ireland', code: '372' },
+  IMN: { fillKey: 2, name: 'Isle of Man', code: '833' },
+  ISR: { fillKey: 2, name: 'Israel', code: '376' },
+  ITA: { fillKey: 1, name: 'Italy', code: '380' },
+  JAM: { fillKey: 2, name: 'Jamaica', code: '388' },
+  JPN: { fillKey: 1, name: 'Japan', code: '392' },
+  JEY: { fillKey: 2, name: 'Jersey', code: '832' },
+  JOR: { fillKey: 2, name: 'Jordan', code: '400' },
+  KAZ: { fillKey: 2, name: 'Kazakhstan', code: '398' },
+  KEN: { fillKey: 2, name: 'Kenya', code: '404' },
+  KIR: { fillKey: 2, name: 'Kiribati', code: '296' },
+  PRK: { fillKey: 2, name: "Korea (Democratic People's Republic of)", code: '408' },
+  KOR: { fillKey: 2, name: 'Korea, Republic of', code: '410' },
+  KWT: { fillKey: 1, name: 'Kuwait', code: '414' },
+  KGZ: { fillKey: 2, name: 'Kyrgyzstan', code: '417' },
+  LAO: { fillKey: 1, name: "Lao People's Democratic Republic", code: '418' },
+  LVA: { fillKey: 2, name: 'Latvia', code: '428' },
+  LBN: { fillKey: 2, name: 'Lebanon', code: '422' },
+  LSO: { fillKey: 2, name: 'Lesotho', code: '426' },
+  LBR: { fillKey: 2, name: 'Liberia', code: '430' },
+  LBY: { fillKey: 2, name: 'Libya', code: '434' },
+  LIE: { fillKey: 2, name: 'Liechtenstein', code: '438' },
+  LTU: { fillKey: 2, name: 'Lithuania', code: '440' },
+  LUX: { fillKey: 1, name: 'Luxembourg', code: '442' },
+  MAC: { fillKey: 2, name: 'Macao', code: '446' },
+  MDG: { fillKey: 2, name: 'Madagascar', code: '450' },
+  MWI: { fillKey: 2, name: 'Malawi', code: '454' },
+  MYS: { fillKey: 1, name: 'Malaysia', code: '458' },
+  MDV: { fillKey: 2, name: 'Maldives', code: '462' },
+  MLI: { fillKey: 2, name: 'Mali', code: '466' },
+  MLT: { fillKey: 2, name: 'Malta', code: '470' },
+  MHL: { fillKey: 2, name: 'Marshall Islands', code: '584' },
+  MTQ: { fillKey: 2, name: 'Martinique', code: '474' },
+  MRT: { fillKey: 2, name: 'Mauritania', code: '478' },
+  MUS: { fillKey: 2, name: 'Mauritius', code: '480' },
+  MYT: { fillKey: 2, name: 'Mayotte', code: '175' },
+  MEX: { fillKey: 1, name: 'Mexico', code: '484' },
+  FSM: { fillKey: 2, name: 'Micronesia (Federated States of)', code: '583' },
+  MDA: { fillKey: 1, name: 'Moldova, Republic of', code: '498' },
+  MCO: { fillKey: 1, name: 'Monaco', code: '492' },
+  MNG: { fillKey: 2, name: 'Mongolia', code: '496' },
+  MNE: { fillKey: 2, name: 'Montenegro', code: '499' },
+  MSR: { fillKey: 2, name: 'Montserrat', code: '500' },
+  MAR: { fillKey: 1, name: 'Morocco', code: '504' },
+  MOZ: { fillKey: 2, name: 'Mozambique', code: '508' },
+  MMR: { fillKey: 1, name: 'Myanmar', code: '104' },
+  NAM: { fillKey: 2, name: 'Namibia', code: '516' },
+  NRU: { fillKey: 2, name: 'Nauru', code: '520' },
+  NPL: { fillKey: 1, name: 'Nepal', code: '524' },
+  NLD: { fillKey: 1, name: 'Netherlands', code: '528' },
+  NCL: { fillKey: 2, name: 'New Caledonia', code: '540' },
+  NZL: { fillKey: 2, name: 'New Zealand', code: '554' },
+  NIC: { fillKey: 2, name: 'Nicaragua', code: '558' },
+  NER: { fillKey: 2, name: 'Niger', code: '562' },
+  NGA: { fillKey: 2, name: 'Nigeria', code: '566' },
+  NIU: { fillKey: 2, name: 'Niue', code: '570' },
+  NFK: { fillKey: 2, name: 'Norfolk Island', code: '574' },
+  MKD: { fillKey: 2, name: 'North Macedonia', code: '807' },
+  MNP: { fillKey: 2, name: 'Northern Mariana Islands', code: '580' },
+  NOR: { fillKey: 2, name: 'Norway', code: '578' },
+  OMN: { fillKey: 2, name: 'Oman', code: '512' },
+  PAK: { fillKey: 2, name: 'Pakistan', code: '586' },
+  PLW: { fillKey: 2, name: 'Palau', code: '585' },
+  PSE: { fillKey: 2, name: 'Palestine, State of', code: '275' },
+  PAN: { fillKey: 2, name: 'Panama', code: '591' },
+  PNG: { fillKey: 2, name: 'Papua New Guinea', code: '598' },
+  PRY: { fillKey: 2, name: 'Paraguay', code: '600' },
+  PER: { fillKey: 2, name: 'Peru', code: '604' },
+  PHL: { fillKey: 2, name: 'Philippines', code: '608' },
+  PCN: { fillKey: 2, name: 'Pitcairn', code: '612' },
+  POL: { fillKey: 1, name: 'Poland', code: '616' },
+  PRT: { fillKey: 1, name: 'Portugal', code: '620' },
+  PRI: { fillKey: 2, name: 'Puerto Rico', code: '630' },
+  QAT: { fillKey: 2, name: 'Qatar', code: '634' },
+  REU: { fillKey: 2, name: 'Réunion', code: '638' },
+  ROU: { fillKey: 1, name: 'Romania', code: '642' },
+  RUS: { fillKey: 2, name: 'Russian Federation', code: '643' },
+  RWA: { fillKey: 2, name: 'Rwanda', code: '646' },
+  BLM: { fillKey: 2, name: 'Saint Barthélemy', code: '652' },
+  SHN: { fillKey: 2, name: 'Saint Helena, Ascension and Tristan da Cunha', code: '654' },
+  KNA: { fillKey: 2, name: 'Saint Kitts and Nevis', code: '659' },
+  LCA: { fillKey: 2, name: 'Saint Lucia', code: '662' },
+  MAF: { fillKey: 2, name: 'Saint Martin (French part)', code: '663' },
+  SPM: { fillKey: 2, name: 'Saint Pierre and Miquelon', code: '666' },
+  VCT: { fillKey: 2, name: 'Saint Vincent and the Grenadines', code: '670' },
+  WSM: { fillKey: 2, name: 'Samoa', code: '882' },
+  SMR: { fillKey: 2, name: 'San Marino', code: '674' },
+  STP: { fillKey: 2, name: 'Sao Tome and Principe', code: '678' },
+  SAU: { fillKey: 2, name: 'Saudi Arabia', code: '682' },
+  SEN: { fillKey: 2, name: 'Senegal', code: '686' },
+  SRB: { fillKey: 2, name: 'Serbia', code: '688' },
+  SYC: { fillKey: 2, name: 'Seychelles', code: '690' },
+  SLE: { fillKey: 2, name: 'Sierra Leone', code: '694' },
+  SGP: { fillKey: 1, name: 'Singapore', code: '702' },
+  SXM: { fillKey: 2, name: 'Sint Maarten (Dutch part)', code: '534' },
+  SVK: { fillKey: 1, name: 'Slovakia', code: '703' },
+  SVN: { fillKey: 2, name: 'Slovenia', code: '705' },
+  SLB: { fillKey: 2, name: 'Solomon Islands', code: '090' },
+  SOM: { fillKey: 2, name: 'Somalia', code: '706' },
+  ZAF: { fillKey: 2, name: 'South Africa', code: '710' },
+  SGS: { fillKey: 2, name: 'South Georgia and the South Sandwich Islands', code: '239' },
+  SSD: { fillKey: 2, name: 'South Sudan', code: '728' },
+  ESP: { fillKey: 1, name: 'Spain', code: '724' },
+  LKA: { fillKey: 2, name: 'Sri Lanka', code: '144' },
+  SDN: { fillKey: 2, name: 'Sudan', code: '729' },
+  SUR: { fillKey: 2, name: 'Suriname', code: '740' },
+  SJM: { fillKey: 2, name: 'Svalbard and Jan Mayen', code: '744' },
+  SWE: { fillKey: 1, name: 'Sweden', code: '752' },
+  CHE: { fillKey: 2, name: 'Switzerland', code: '756' },
+  SYR: { fillKey: 2, name: 'Syrian Arab Republic', code: '760' },
+  TWN: { fillKey: 2, name: 'Taiwan, Province of China', code: '158' },
+  TJK: { fillKey: 2, name: 'Tajikistan', code: '762' },
+  TZA: { fillKey: 2, name: 'Tanzania, United Republic of', code: '834' },
+  THA: { fillKey: 1, name: 'Thailand', code: '764' },
+  TLS: { fillKey: 2, name: 'Timor-Leste', code: '626' },
+  TGO: { fillKey: 2, name: 'Togo', code: '768' },
+  TKL: { fillKey: 2, name: 'Tokelau', code: '772' },
+  TON: { fillKey: 2, name: 'Tonga', code: '776' },
+  TTO: { fillKey: 2, name: 'Trinidad and Tobago', code: '780' },
+  TUN: { fillKey: 2, name: 'Tunisia', code: '788' },
+  TUR: { fillKey: 2, name: 'Turkey', code: '792' },
+  TKM: { fillKey: 2, name: 'Turkmenistan', code: '795' },
+  TCA: { fillKey: 2, name: 'Turks and Caicos Islands', code: '796' },
+  TUV: { fillKey: 2, name: 'Tuvalu', code: '798' },
+  UGA: { fillKey: 2, name: 'Uganda', code: '800' },
+  UKR: { fillKey: 1, name: 'Ukraine', code: '804' },
+  ARE: { fillKey: 2, name: 'United Arab Emirates', code: '784' },
+  GBR: { fillKey: 1, name: 'United Kingdom of Great Britain and Northern Ireland', code: '826' },
+  USA: { fillKey: 1, name: 'United States of America', code: '840' },
+  UMI: { fillKey: 2, name: 'United States Minor Outlying Islands', code: '581' },
+  URY: { fillKey: 2, name: 'Uruguay', code: '858' },
+  UZB: { fillKey: 2, name: 'Uzbekistan', code: '860' },
+  VUT: { fillKey: 2, name: 'Vanuatu', code: '548' },
+  VEN: { fillKey: 2, name: 'Venezuela (Bolivarian Republic of)', code: '862' },
+  VNM: { fillKey: 1, name: 'Vietnam', code: '704' },
+  VGB: { fillKey: 1, name: 'Virgin Islands (British)', code: '092' },
+  VIR: { fillKey: 2, name: 'Virgin Islands (U.S.)', code: '850' },
+  WLF: { fillKey: 2, name: 'Wallis and Futuna', code: '876' },
+  ESH: { fillKey: 2, name: 'Western Sahara', code: '732' },
+  YEM: { fillKey: 2, name: 'Yemen', code: '887' },
+  ZMB: { fillKey: 2, name: 'Zambia', code: '894' },
+  ZWE: { fillKey: 2, name: 'Zimbabwe', code: '716' }
+};
 
 let map = new Datamap({
-  element: document.getElementById("map"),
-  scope: "world", // Currently supports 'usa' and 'world', however with custom map data you can specify your own
+  element: document.getElementById('map'),
+  scope: 'world', // Currently supports 'usa' and 'world', however with custom map data you can specify your own
   //setProjection: setProjection, // Returns a d3 path and projection functions
-  projection: "mercator", // Style of projection to be used. try "mercator"
+  projection: 'mercator', // Style of projection to be used. try "mercator"
   height: null, // If not null, datamaps will grab the height of 'element'
   width: null, // If not null, datamaps will grab the width of 'element',
   responsive: true, // If true, call `resize()` on the map object when it should adjust it's size
-  data: countryDataObj,
+  data: data,
   done: function(datamap) {
     let countryVisitedCount = Object.keys(datamap.options.data).length;
-    let mapCountries = document.querySelectorAll(".datamaps-subunit");
-    let countryFlag = document.querySelector("#country-flag");
-    let countryName = document.querySelector("#country-name");
-    let countryCapital = document.querySelector("#country-capital");
-    let countryCurrency = document.querySelector("#country-currency");
-    let countryLanguage = document.querySelector("#country-language");
+    let mapCountries = document.querySelectorAll('.datamaps-subunit');
+    let countryFlag = document.querySelector('#country-flag');
+    let countryName = document.querySelector('#country-name');
+    let countryCapital = document.querySelector('#country-capital');
+    let countryCurrency = document.querySelector('#country-currency');
+    let countryLanguage = document.querySelector('#country-language');
 
     for (const country of mapCountries) {
-      country.addEventListener("click", function(event) {
+      country.addEventListener('click', function(event) {
         let countryCode = event.target.classList[1];
 
         let infoObject;
-        let countryMetaInfo = Object.values(
-          Object.assign({}, event.target.dataset)
-        )[0];
+        let countryMetaInfo = Object.values(Object.assign({}, event.target.dataset))[0];
         if (countryMetaInfo === undefined) {
           infoObject = '{"fillKey":"not-visited"}';
         } else {
@@ -460,45 +284,36 @@ let map = new Datamap({
         let visitedStatus = Object.values(parsedInfoObject)[0];
         console.log(visitedStatus);
 
-        if (countryCode && visitedStatus === "visited") {
-          console.log("send request");
+        if (countryCode && visitedStatus === 'visited') {
+          console.log('send request');
           // Add API call here
         }
       });
 
-      country.addEventListener("mouseover", function(event) {
+      country.addEventListener('mouseover', function(event) {
         countryFlag.src = event.target.__data__.properties.flag;
-        countryName.innerText =
-          "Country: " + event.target.__data__.properties.name;
-        countryCapital.innerText =
-          "Capital: " + event.target.__data__.properties.capital;
-        countryCurrency.innerText =
-          "Currency: " +
-          "[" +
-          event.target.__data__.properties.currencies[0].symbol +
-          "]" +
-          event.target.__data__.properties.currencies[0].name;
+        countryName.innerText = 'Country: ' + event.target.__data__.properties.name;
+        countryCapital.innerText = 'Capital: ' + event.target.__data__.properties.capital;
+        countryCurrency.innerText = 'Currency: ' + '[' + event.target.__data__.properties.currencies[0].symbol + ']' + event.target.__data__.properties.currencies[0].name;
 
         let allLanguages = [];
         event.target.__data__.properties.languages.forEach(function(language) {
           allLanguages.push(language.name);
         });
         if (allLanguages.length === 1) {
-          countryLanguage.innerText = "Language: " + allLanguages.join("");
+          countryLanguage.innerText = 'Language: ' + allLanguages.join('');
         } else if (allLanguages.length > 1) {
-          countryLanguage.innerText = "Languages: " + allLanguages.join(", ");
+          countryLanguage.innerText = 'Languages: ' + allLanguages.join(', ');
         }
-
-        // console.log(event.target.__data__.properties);
       });
     }
   }, // Callback when the map is done drawing
   fills: {
-    defaultFill: "#dcdee2",
-    visited: "#7c8aaa"
+    defaultFill: '#dcdee2',
+    1: '#7c8aaa'
     // The keys in this object map to the "fillKey" of [data] or [bubbles]
   },
-  dataType: "json", // For use with dataUrl, currently 'json' or 'csv'. CSV should have an `id` column
+  dataType: 'json', // For use with dataUrl, currently 'json' or 'csv'. CSV should have an `id` column
   dataUrl: null, // If not null, datamaps will attempt to fetch this based on dataType ( default: json )
   geographyConfig: {
     dataUrl: null, // If not null, datamaps will fetch the map JSON (currently only supports topojson)
@@ -506,37 +321,33 @@ let map = new Datamap({
     hideHawaiiAndAlaska: false,
     borderWidth: 1,
     borderOpacity: 1,
-    borderColor: "#FCFCFC",
+    borderColor: '#FCFCFC',
     popupTemplate: function(geography, data) {
       // This function should just return a string
-      return (
-        '<div class="hoverinfo"><strong>' +
-        geography.properties.name +
-        "<strong></div>"
-      );
+      return '<div class="hoverinfo"><strong>' + geography.properties.name + '<strong></div>';
     },
     popupOnHover: true, // True to show the popup while hovering
     highlightOnHover: true,
-    highlightFillColor: "rgb(154, 130, 170)",
-    highlightBorderColor: "rgb(139, 115, 155)",
+    highlightFillColor: 'rgb(154, 130, 170)',
+    highlightBorderColor: 'rgb(139, 115, 155)',
     highlightBorderWidth: 1,
     highlightBorderOpacity: 1
   },
   bubblesConfig: {
     borderWidth: 2,
     borderOpacity: 1,
-    borderColor: "#FFFFFF",
+    borderColor: '#FFFFFF',
     popupOnHover: true, // True to show the popup while hovering
     radius: null,
     popupTemplate: function(geography, data) {
       // This function should just return a string
-      return '<div class="hoverinfo"><strong>' + data.name + "</strong></div>";
+      return '<div class="hoverinfo"><strong>' + data.name + '</strong></div>';
     },
     fillOpacity: 0.75,
     animate: true,
     highlightOnHover: true,
-    highlightFillColor: "#FC8D59",
-    highlightBorderColor: "rgba(250, 15, 160, 0.2)",
+    highlightFillColor: '#FC8D59',
+    highlightBorderColor: 'rgba(250, 15, 160, 0.2)',
     highlightBorderWidth: 2,
     highlightBorderOpacity: 1,
     highlightFillOpacity: 0.85,
@@ -544,7 +355,7 @@ let map = new Datamap({
     key: JSON.stringify
   },
   arcConfig: {
-    strokeColor: "#DD1C77",
+    strokeColor: '#DD1C77',
     strokeWidth: 1,
     arcSharpness: 1,
     animationSpeed: 600, // Milliseconds
@@ -552,41 +363,22 @@ let map = new Datamap({
     popupTemplate: function(geography, data) {
       // This function should just return a string
       // Case with latitude and longitude
-      if (
-        data.origin &&
-        data.destination &&
-        data.origin.latitude &&
-        data.origin.longitude &&
-        data.destination.latitude &&
-        data.destination.longitude
-      ) {
-        return (
-          '<div class="hoverinfo"><strong>Arc</strong><br>Origin: ' +
-          JSON.stringify(data.origin) +
-          "<br>Destination: " +
-          JSON.stringify(data.destination) +
-          "</div>"
-        );
+      if (data.origin && data.destination && data.origin.latitude && data.origin.longitude && data.destination.latitude && data.destination.longitude) {
+        return '<div class="hoverinfo"><strong>Arc</strong><br>Origin: ' + JSON.stringify(data.origin) + '<br>Destination: ' + JSON.stringify(data.destination) + '</div>';
       }
       // Case with only country name
       else if (data.origin && data.destination) {
-        return (
-          '<div class="hoverinfo"><strong>Arc</strong><br>' +
-          data.origin +
-          " -> " +
-          data.destination +
-          "</div>"
-        );
+        return '<div class="hoverinfo"><strong>Arc</strong><br>' + data.origin + ' -> ' + data.destination + '</div>';
       }
       // Missing information
       else {
-        return "";
+        return '';
       }
     }
   }
 });
 
 //   Resize function for map
-window.addEventListener("resize", function() {
+window.addEventListener('resize', function() {
   map.resize();
 });
