@@ -270,27 +270,20 @@ let map = new Datamap({
 
     for (const country of mapCountries) {
       country.addEventListener('click', function(event) {
-        let countryCode = event.target.classList[1];
+        let visitedStatus = JSON.parse(event.target.dataset.info).fillKey;
 
-        let infoObject;
-        let countryMetaInfo = Object.values(Object.assign({}, event.target.dataset))[0];
-        if (countryMetaInfo === undefined) {
-          infoObject = '{"fillKey":"not-visited"}';
-        } else {
-          infoObject = countryMetaInfo;
-        }
-
-        let parsedInfoObject = JSON.parse(infoObject);
-        let visitedStatus = Object.values(parsedInfoObject)[0];
-        console.log(visitedStatus);
-
-        if (countryCode && visitedStatus === 'visited') {
+        if (visitedStatus === 1) {
           console.log('send request');
           // Add API call here
         }
       });
 
       country.addEventListener('mouseover', function(event) {
+        let visitedStatus = JSON.parse(event.target.dataset.info).fillKey;
+        if (visitedStatus === 1) {
+          country.style.cursor = 'pointer';
+        }
+
         countryFlag.src = event.target.__data__.properties.flag;
         countryName.innerText = 'Country: ' + event.target.__data__.properties.name;
         countryCapital.innerText = 'Capital: ' + event.target.__data__.properties.capital;
