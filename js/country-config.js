@@ -332,7 +332,7 @@ let map = new Datamap({
     borderColor: '#FCFCFC',
     popupTemplate: function(geography, data) {
       // This function should just return a string
-      return '<div class="hoverinfo"><strong>' + geography.properties.name + `<img style="width:30px" src=${event.target.__data__.properties.flag}>`;
+      return '<div class="hoverinfo"><strong>' + geography.properties.name + `<img style="width:30px;margin:8px auto;" src=${event.target.__data__.properties.flag}>`;
     },
     popupOnHover: true, // True to show the popup while hovering
     highlightOnHover: true,
