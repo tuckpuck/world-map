@@ -267,6 +267,9 @@ let map = new Datamap({
     let countryCapital = document.querySelector('#country-capital');
     let countryCurrency = document.querySelector('#country-currency');
     let countryLanguage = document.querySelector('#country-language');
+    let countryRegion = document.querySelector('#country-region');
+    let countrySubregion = document.querySelector('#country-subregion');
+    let countryTimezone = document.querySelector('#country-timezone');
 
     for (const country of mapCountries) {
       country.addEventListener('click', function(event) {
@@ -288,6 +291,8 @@ let map = new Datamap({
         countryName.innerText = 'Country: ' + event.target.__data__.properties.name;
         countryCapital.innerText = 'Capital: ' + event.target.__data__.properties.capital;
         countryCurrency.innerText = 'Currency: ' + '[' + event.target.__data__.properties.currencies[0].symbol + ']' + event.target.__data__.properties.currencies[0].name;
+        countryRegion.innerText = 'Region: ' + event.target.__data__.properties.region;
+        countrySubregion.innerText = 'Subregion: ' + event.target.__data__.properties.subregion;
 
         let allLanguages = [];
         event.target.__data__.properties.languages.forEach(function(language) {
@@ -297,6 +302,16 @@ let map = new Datamap({
           countryLanguage.innerText = 'Language: ' + allLanguages.join('');
         } else if (allLanguages.length > 1) {
           countryLanguage.innerText = 'Languages: ' + allLanguages.join(', ');
+        }
+
+        let allTimezones = [];
+        event.target.__data__.properties.timezones.forEach(function(zone) {
+          allTimezones.push(zone);
+        });
+        if (allTimezones.length === 1) {
+          countryTimezone.innerText = 'Timezone: ' + allTimezones.join('');
+        } else if (allTimezones.length > 1) {
+          countryTimezone.innerText = 'Timezones: ' + allTimezones.join(', ');
         }
       });
     }
