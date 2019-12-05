@@ -20,9 +20,10 @@ a {
 }
 
 .country-info {
-  position: absolute;
+  position: fixed;
   bottom: 20px;
   left: 20px;
+  max-width: 200px;
 }
 
 .header {
@@ -37,6 +38,20 @@ a {
   background-color: #f7fafc;
 }
 
+#country-name {
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
 #country-flag {
   width: 60px;
+}
+
+#country-capital {
+  display: inline-block;
+}
+
+.icon {
+  width: 30px;
+    display: inline-block;
 }

@@ -288,8 +288,8 @@ let map = new Datamap({
         }
 
         countryFlag.src = event.target.__data__.properties.flag;
-        countryName.innerText = 'Country: ' + event.target.__data__.properties.name;
-        countryCapital.innerText = 'Capital: ' + event.target.__data__.properties.capital;
+        countryName.innerText = event.target.__data__.properties.name;
+        countryCapital.innerText = event.target.__data__.properties.capital;
         countryCurrency.innerText = 'Currency: ' + '[' + event.target.__data__.properties.currencies[0].symbol + ']' + event.target.__data__.properties.currencies[0].name;
         countryRegion.innerText = 'Region: ' + event.target.__data__.properties.region;
         countrySubregion.innerText = 'Subregion: ' + event.target.__data__.properties.subregion;
@@ -332,7 +332,7 @@ let map = new Datamap({
     borderColor: '#FCFCFC',
     popupTemplate: function(geography, data) {
       // This function should just return a string
-      return '<div class="hoverinfo"><strong>' + geography.properties.name + '<strong></div>';
+      return '<div class="hoverinfo"><strong>' + geography.properties.name + `<img style="width:30px" src=${event.target.__data__.properties.flag}>`;
     },
     popupOnHover: true, // True to show the popup while hovering
     highlightOnHover: true,
