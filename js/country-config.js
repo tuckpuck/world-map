@@ -281,13 +281,13 @@ let map = new Datamap({
         }
       });
 
-      country.addEventListener('mouseover', function(event) {
+      country.addEventListener('click', function(event) {
         let visitedStatus = JSON.parse(event.target.dataset.info).fillKey;
         if (visitedStatus === 1) {
           country.style.cursor = 'pointer';
         }
 
-        countryFlag.src = event.target.__data__.properties.flag;
+        countryFlag.src = event.target.__data__.properties.flag || null;
         countryName.innerText = event.target.__data__.properties.name;
         countryCapital.innerText = event.target.__data__.properties.capital;
         countryCurrency.innerText = 'Currency: ' + '[' + event.target.__data__.properties.currencies[0].symbol + ']' + event.target.__data__.properties.currencies[0].name;
