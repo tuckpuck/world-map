@@ -61,19 +61,17 @@ a {
 #country-flag {
   width: 100%;
   position: relative;
-  opacity: 0.2;
+  opacity: 0.6;
 }
 
 .info-item-text {
   display: inline-block;
 }
 
-}
-
 .icon {
   display: inline-block;
   color: #333;
-   vertical-align: sub;
+   vertical-align: top;
 }
 
 svg {
