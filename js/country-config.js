@@ -261,13 +261,18 @@ let map = new Datamap({
   data: data,
   done: function(datamap) {
     let countryVisitedCount = Object.keys(datamap.options.data).length;
+    let card = document.querySelector('#card');
     let mapCountries = document.querySelectorAll('.datamaps-subunit');
+    let cardIcons = document.querySelectorAll('.icon');
+    let iconArray = Array.from(cardIcons);
+    let countryInfoItem = document.querySelectorAll('.country-info-item');
+    let countryInfoItemArray = Array.from(countryInfoItem);
     let countryFlag = document.querySelector('#country-flag');
     let countryName = document.querySelector('#country-name');
+    let initialCardText = document.querySelector('#initial-card-text');
     let countryCapital = document.querySelector('#country-capital');
     let countryCurrency = document.querySelector('#country-currency');
     let countryLanguage = document.querySelector('#country-language');
-    let countryRegion = document.querySelector('#country-region');
     let countrySubregion = document.querySelector('#country-subregion');
     let countryTimezone = document.querySelector('#country-timezone');
 
@@ -287,12 +292,16 @@ let map = new Datamap({
           country.style.cursor = 'pointer';
         }
 
-        countryFlag.src = event.target.__data__.properties.flag || null;
+        countryInfoItemArray.forEach((item) => {
+          item.style.display = 'block';
+        });
+        initialCardText.style.display = 'none';
+        countryFlag.style.display = 'block';
+        countryFlag.src = event.target.__data__.properties.flag;
         countryName.innerText = event.target.__data__.properties.name;
         countryCapital.innerText = event.target.__data__.properties.capital;
         countryCurrency.innerText = event.target.__data__.properties.currencies[0].name;
-        countryRegion.innerText = 'Region: ' + event.target.__data__.properties.region;
-        countrySubregion.innerText = 'Subregion: ' + event.target.__data__.properties.subregion;
+        countrySubregion.innerText = event.target.__data__.properties.subregion;
 
         let allLanguages = [];
         event.target.__data__.properties.languages.forEach(function(language) {
@@ -302,16 +311,6 @@ let map = new Datamap({
           countryLanguage.innerText = allLanguages.join('');
         } else if (allLanguages.length > 1) {
           countryLanguage.innerText = allLanguages.join(', ');
-        }
-
-        let allTimezones = [];
-        event.target.__data__.properties.timezones.forEach(function(zone) {
-          allTimezones.push(zone);
-        });
-        if (allTimezones.length === 1) {
-          countryTimezone.innerText = 'Timezone: ' + allTimezones.join('');
-        } else if (allTimezones.length > 1) {
-          countryTimezone.innerText = 'Timezones: ' + allTimezones.join(', ');
         }
       });
     }
