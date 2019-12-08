@@ -290,7 +290,7 @@ let map = new Datamap({
         countryFlag.src = event.target.__data__.properties.flag || null;
         countryName.innerText = event.target.__data__.properties.name;
         countryCapital.innerText = event.target.__data__.properties.capital;
-        countryCurrency.innerText = 'Currency: ' + '[' + event.target.__data__.properties.currencies[0].symbol + ']' + event.target.__data__.properties.currencies[0].name;
+        countryCurrency.innerText = event.target.__data__.properties.currencies[0].name;
         countryRegion.innerText = 'Region: ' + event.target.__data__.properties.region;
         countrySubregion.innerText = 'Subregion: ' + event.target.__data__.properties.subregion;
 
@@ -299,9 +299,9 @@ let map = new Datamap({
           allLanguages.push(language.name);
         });
         if (allLanguages.length === 1) {
-          countryLanguage.innerText = 'Language: ' + allLanguages.join('');
+          countryLanguage.innerText = allLanguages.join('');
         } else if (allLanguages.length > 1) {
-          countryLanguage.innerText = 'Languages: ' + allLanguages.join(', ');
+          countryLanguage.innerText = allLanguages.join(', ');
         }
 
         let allTimezones = [];

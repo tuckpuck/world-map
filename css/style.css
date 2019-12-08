@@ -50,24 +50,33 @@ a {
 
 .country-info-item {
   padding: 2px 0px;
+  font-size: 1.1rem;
 }
 
 #country-name {
-  font-size: 1.4em;
+  font-size: 1.6rem;
   font-weight: bold;
 }
 
 #country-flag {
-  width: 60px;
+  width: 100%;
+  position: relative;
+  opacity: 0.2;
 }
 
-#country-capital {
+.info-item-text {
   display: inline-block;
 }
 
-.icon {
-  width: 20px;
-    display: inline-block;
 }
 
+.icon {
+  display: inline-block;
+  color: #333;
+   vertical-align: sub;
+}
+
+svg {
+  display: inline-block;
+}
 
