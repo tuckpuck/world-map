@@ -50,7 +50,16 @@ let map = new Datamap({
         countryCapital.innerText = event.target.__data__.properties.capital;
         countryCurrency.innerText = event.target.__data__.properties.currencies[0].name;
         countrySubregion.innerText = event.target.__data__.properties.subregion;
-        countryTimezone.innerText = event.target.__data__.properties.timezones[0];
+
+        let allTimezones = [];
+        event.target.__data__.properties.timezones.forEach(function(zone) {
+          allTimezones.push(zone);
+        });
+        if (allTimezones.length === 1) {
+          countryTimezone.innerText = 'Timezone: ' + allTimezones.join('');
+        } else if (allTimezones.length > 1) {
+          countryTimezone.innerText = 'Timezones: ' + allTimezones.join(', ');
+        }
 
         let allLanguages = [];
         event.target.__data__.properties.languages.forEach(function(language) {
