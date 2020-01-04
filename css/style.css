@@ -55,8 +55,7 @@ a {
 }
 
 #initial-card-text {
-  font-size: 1.6rem;
-  font-weight: bold;
+  font-size: 1.4rem;
 }
 
 #country-name {
@@ -78,10 +77,14 @@ a {
 .icon {
   color: #333;
    vertical-align: top;
-
 }
 
 svg {
   display: inline-block;
 }
 
+#more-info {
+  text-align: center;
+  margin: 10px auto 0;
+  display: block;
+}
