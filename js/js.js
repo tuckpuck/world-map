@@ -23,6 +23,7 @@ let map = new Datamap({
     let countryLanguage = document.querySelector('#country-language');
     let countrySubregion = document.querySelector('#country-subregion');
     let countryTimezone = document.querySelector('#country-timezone');
+    let timeZoneInfoItem = document.querySelector('#time-zone');
 
     for (const country of mapCountries) {
       country.addEventListener('click', function(event) {
@@ -39,17 +40,17 @@ let map = new Datamap({
         if (visitedStatus === 1) {
           country.style.cursor = 'pointer';
         }
-
         countryInfoItemArray.forEach((item) => {
           item.style.display = 'block';
         });
+        timeZoneInfoItem.style.display = 'none';
         initialCardText.style.display = 'none';
-        countryFlag.style.display = 'block';
         countryFlag.src = event.target.__data__.properties.flag;
         countryName.innerText = event.target.__data__.properties.name;
         countryCapital.innerText = event.target.__data__.properties.capital;
         countryCurrency.innerText = event.target.__data__.properties.currencies[0].name;
         countrySubregion.innerText = event.target.__data__.properties.subregion;
+        countryTimezone.innerText = event.target.__data__.properties.timezones[0];
 
         let allLanguages = [];
         event.target.__data__.properties.languages.forEach(function(language) {
@@ -139,12 +140,14 @@ let languageInfoItem = document.getElementById('language');
 let currencyInfoItem = document.getElementById('currency');
 let regionInfoItem = document.getElementById('region');
 let capitalNameInfoItem = document.getElementById('capital-name');
+let timeZone = document.getElementById('time-zone');
 
-moreInfoButton.addEventListener('click', () => {
+moreInfoButton.addEventListener('click', function() {
   languageInfoItem.style.display = 'none';
   currencyInfoItem.style.display = 'none';
   regionInfoItem.style.display = 'none';
   capitalNameInfoItem.style.display = 'none';
+  timeZone.style.display = 'block';
 });
 
 //   Resize function for map
