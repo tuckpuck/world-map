@@ -86,7 +86,7 @@ svg {
 #more-info {
   text-align: center;
   margin: 10px auto 0;
-  display: block;
+  display: none;
 }
 
 /* #language {

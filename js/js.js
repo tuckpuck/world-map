@@ -24,6 +24,7 @@ let map = new Datamap({
     let countrySubregion = document.querySelector('#country-subregion');
     let countryTimezone = document.querySelector('#country-timezone');
     let timeZoneInfoItem = document.querySelector('#time-zone');
+    let moreInfoButton = document.getElementById('more-info');
 
     for (const country of mapCountries) {
       country.addEventListener('click', function (event) {
@@ -45,6 +46,7 @@ let map = new Datamap({
         });
         timeZoneInfoItem.style.display = 'none';
         initialCardText.style.display = 'none';
+        moreInfoButton.style.display = 'block';
         countryFlag.src = event.target.__data__.properties.flag;
         countryName.innerText = event.target.__data__.properties.name;
         countryCapital.innerText = event.target.__data__.properties.capital;
@@ -152,12 +154,6 @@ let capitalNameInfoItem = document.getElementById('capital-name');
 let timeZone = document.getElementById('time-zone');
 
 moreInfoButton.addEventListener('click', function () {
-  // languageInfoItem.classlist.add('d-none');
-  // currencyInfoItem.classlist.add('d-none');
-  // regionInfoItem.classlist.add('d-none');
-  // capitalNameInfoItem.classlist.add('d-none');
-  // timeZone.classlist.remove('d-none');
-
   languageInfoItem.style.display = languageInfoItem.style.display == 'none' ? 'block' : 'none';
   currencyInfoItem.style.display = currencyInfoItem.style.display == 'none' ? 'block' : 'none';
   regionInfoItem.style.display = regionInfoItem.style.display == 'none' ? 'block' : 'none';
