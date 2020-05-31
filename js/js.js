@@ -7,7 +7,7 @@ let map = new Datamap({
   width: null, // If not null, datamaps will grab the width of 'element',
   responsive: true, // If true, call `resize()` on the map object when it should adjust it's size
   data: data,
-  done: function(datamap) {
+  done: function (datamap) {
     let countryVisitedCount = Object.keys(datamap.options.data).length;
     let card = document.querySelector('#card');
     let mapCountries = document.querySelectorAll('.datamaps-subunit');
@@ -26,7 +26,7 @@ let map = new Datamap({
     let timeZoneInfoItem = document.querySelector('#time-zone');
 
     for (const country of mapCountries) {
-      country.addEventListener('click', function(event) {
+      country.addEventListener('click', function (event) {
         let visitedStatus = JSON.parse(event.target.dataset.info).fillKey;
 
         if (visitedStatus === 1) {
@@ -35,7 +35,7 @@ let map = new Datamap({
         }
       });
 
-      country.addEventListener('click', function(event) {
+      country.addEventListener('click', function (event) {
         let visitedStatus = JSON.parse(event.target.dataset.info).fillKey;
         if (visitedStatus === 1) {
           country.style.cursor = 'pointer';
@@ -52,7 +52,7 @@ let map = new Datamap({
         countrySubregion.innerText = event.target.__data__.properties.subregion;
 
         let allTimezones = [];
-        event.target.__data__.properties.timezones.forEach(function(zone) {
+        event.target.__data__.properties.timezones.forEach(function (zone) {
           allTimezones.push(zone);
         });
         if (allTimezones.length === 1) {
@@ -62,7 +62,7 @@ let map = new Datamap({
         }
 
         let allLanguages = [];
-        event.target.__data__.properties.languages.forEach(function(language) {
+        event.target.__data__.properties.languages.forEach(function (language) {
           allLanguages.push(language.name);
         });
         if (allLanguages.length === 1) {
@@ -75,7 +75,7 @@ let map = new Datamap({
   }, // Callback when the map is done drawing
   fills: {
     defaultFill: '#dcdee2',
-    1: '#7c8aaa'
+    1: '#7c8aaa',
     // The keys in this object map to the "fillKey" of [data] or [bubbles]
   },
   dataType: 'json', // For use with dataUrl, currently 'json' or 'csv'. CSV should have an `id` column
@@ -87,7 +87,7 @@ let map = new Datamap({
     borderWidth: 1,
     borderOpacity: 1,
     borderColor: '#FCFCFC',
-    popupTemplate: function(geography, data) {
+    popupTemplate: function (geography, data) {
       // This function should just return a string
       return '<div class="hoverinfo"><strong>' + geography.properties.name + `<img style="width:30px;margin:8px auto;" src=${event.target.__data__.properties.flag}>`;
     },
@@ -96,7 +96,7 @@ let map = new Datamap({
     highlightFillColor: 'rgb(154, 130, 170)',
     highlightBorderColor: 'rgb(139, 115, 155)',
     highlightBorderWidth: 1,
-    highlightBorderOpacity: 1
+    highlightBorderOpacity: 1,
   },
   bubblesConfig: {
     borderWidth: 2,
@@ -104,7 +104,7 @@ let map = new Datamap({
     borderColor: '#FFFFFF',
     popupOnHover: true, // True to show the popup while hovering
     radius: null,
-    popupTemplate: function(geography, data) {
+    popupTemplate: function (geography, data) {
       // This function should just return a string
       return '<div class="hoverinfo"><strong>' + data.name + '</strong></div>';
     },
@@ -117,7 +117,7 @@ let map = new Datamap({
     highlightBorderOpacity: 1,
     highlightFillOpacity: 0.85,
     exitDelay: 100, // Milliseconds
-    key: JSON.stringify
+    key: JSON.stringify,
   },
   arcConfig: {
     strokeColor: '#DD1C77',
@@ -125,7 +125,7 @@ let map = new Datamap({
     arcSharpness: 1,
     animationSpeed: 600, // Milliseconds
     popupOnHover: false, // True to show the popup while hovering
-    popupTemplate: function(geography, data) {
+    popupTemplate: function (geography, data) {
       // This function should just return a string
       // Case with latitude and longitude
       if (data.origin && data.destination && data.origin.latitude && data.origin.longitude && data.destination.latitude && data.destination.longitude) {
@@ -139,8 +139,8 @@ let map = new Datamap({
       else {
         return '';
       }
-    }
-  }
+    },
+  },
 });
 
 // More info
@@ -151,15 +151,21 @@ let regionInfoItem = document.getElementById('region');
 let capitalNameInfoItem = document.getElementById('capital-name');
 let timeZone = document.getElementById('time-zone');
 
-moreInfoButton.addEventListener('click', function() {
-  languageInfoItem.style.display = 'none';
-  currencyInfoItem.style.display = 'none';
-  regionInfoItem.style.display = 'none';
-  capitalNameInfoItem.style.display = 'none';
-  timeZone.style.display = 'block';
+moreInfoButton.addEventListener('click', function () {
+  // languageInfoItem.classlist.add('d-none');
+  // currencyInfoItem.classlist.add('d-none');
+  // regionInfoItem.classlist.add('d-none');
+  // capitalNameInfoItem.classlist.add('d-none');
+  // timeZone.classlist.remove('d-none');
+
+  languageInfoItem.style.display = languageInfoItem.style.display == 'none' ? 'block' : 'none';
+  currencyInfoItem.style.display = currencyInfoItem.style.display == 'none' ? 'block' : 'none';
+  regionInfoItem.style.display = regionInfoItem.style.display == 'none' ? 'block' : 'none';
+  capitalNameInfoItem.style.display = capitalNameInfoItem.style.display == 'none' ? 'block' : 'none';
+  timeZone.style.display = timeZone.style.display == 'none' ? 'block' : 'none';
 });
 
 //   Resize function for map
-window.addEventListener('resize', function() {
+window.addEventListener('resize', function () {
   map.resize();
 });
