@@ -71,7 +71,7 @@ a {
 }
 
 .info-item-text {
-  display: inline-block;
+  display: inline;
 }
 
 .icon {
@@ -87,6 +87,23 @@ svg {
   text-align: center;
   margin: 10px auto 0;
   display: none;
+}
+
+.hoverinfo {
+  padding: 15px !important;
+  height: auto;
+}
+
+.hover-country-name {
+  font-size: 24px;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.hover-info-line {
+  margin: 4px 0px;
+  font-size: 18px;
+  display: inline-block;
 }
 
 /* #language {
