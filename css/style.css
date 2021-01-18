@@ -24,7 +24,7 @@ a {
   position: fixed;
   bottom: 0px;
   left: 20px;
-  width: 240px;
+  width: auto;
 }
 
 .card {
@@ -60,6 +60,10 @@ a {
   display: none;
 }
 
+path.datamaps-subunit {
+  cursor: pointer;
+}
+
 #initial-card-text {
   font-size: 1.6rem;
   font-weight: normal;
@@ -78,7 +82,7 @@ a {
 }
 
 .info-item-text {
-  display: inline-block;
+  display: inline;
 }
 
 .icon {
@@ -89,3 +93,52 @@ a {
 svg {
   display: inline-block;
 }
+
+#more-info {
+  text-align: center;
+  margin: 10px auto 0;
+  display: none;
+}
+
+#close-info {
+  display: none;
+  float: right;
+  margin: 10px auto 0;
+}
+
+.hoverinfo {
+  padding: 15px !important;
+  height: auto;
+}
+
+.hover-country-name {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.hover-country-img {
+  width: 30px;
+  margin: 8px auto;
+}
+
+.hover-info-line {
+  margin: 4px 0px;
+  font-size: 18px;
+  display: inline-block;
+}
+
+/* #language {
+  display: block;
+}
+#currency {
+  display: block;
+}
+#region {
+  display: block;
+}
+#capital-name {
+  display: block;
+}
+#time-zone {
+  display: none;
+} */
