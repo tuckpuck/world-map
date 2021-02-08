@@ -63,7 +63,7 @@ let data = {
   DJI: { fillKey: 2, name: 'Djibouti', code: '262' },
   DMA: { fillKey: 2, name: 'Dominica', code: '212' },
   DOM: { fillKey: 2, name: 'Dominican Republic', code: '214' },
-  ECU: { fillKey: 2, name: 'Ecuador', code: '218' },
+  ECU: { fillKey: 1, name: 'Ecuador', code: '218' },
   EGY: { fillKey: 1, name: 'Egypt', code: '818' },
   SLV: { fillKey: 2, name: 'El Salvador', code: '222' },
   GNQ: { fillKey: 2, name: 'Equatorial Guinea', code: '226' },
@@ -247,5 +247,5 @@ let data = {
   ESH: { fillKey: 2, name: 'Western Sahara', code: '732' },
   YEM: { fillKey: 2, name: 'Yemen', code: '887' },
   ZMB: { fillKey: 2, name: 'Zambia', code: '894' },
-  ZWE: { fillKey: 2, name: 'Zimbabwe', code: '716' }
+  ZWE: { fillKey: 2, name: 'Zimbabwe', code: '716' },
 };
