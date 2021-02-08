@@ -8,7 +8,14 @@ let map = new Datamap({
   responsive: true, // If true, call `resize()` on the map object when it should adjust it's size
   data: data,
   done: function (datamap) {
-    let countryVisitedCount = Object.keys(datamap.options.data).length;
+    let allCountryCount = Object.keys(datamap.options.data).length;
+    let allCountries = Object.values(datamap.options.data);
+    let visitedCountryCount = 0;
+    for (const country of allCountries) {
+      if (country.fillKey === 1) {
+        visitedCountryCount += 1;
+      }
+    }
     let card = document.querySelector('#card');
     let mapCountries = document.querySelectorAll('.datamaps-subunit');
     let cardIcons = document.querySelectorAll('.icon');
@@ -26,6 +33,9 @@ let map = new Datamap({
     let timeZoneInfoItem = document.querySelector('#time-zone');
     let moreInfoButton = document.getElementById('more-info');
     let closeInfoButton = document.getElementById('close-info');
+    let visitedCountryDisplay = document.getElementById('country-count');
+
+    visitedCountryDisplay.innerHTML = visitedCountryCount;
 
     for (const country of mapCountries) {
       country.addEventListener('click', function (event) {
