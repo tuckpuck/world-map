@@ -226,7 +226,7 @@ let data = {
   TON: { fillKey: 2, name: 'Tonga', code: '776' },
   TTO: { fillKey: 2, name: 'Trinidad and Tobago', code: '780' },
   TUN: { fillKey: 2, name: 'Tunisia', code: '788' },
-  TUR: { fillKey: 2, name: 'Turkey', code: '792' },
+  TUR: { fillKey: 1, name: 'Turkey', code: '792' },
   TKM: { fillKey: 2, name: 'Turkmenistan', code: '795' },
   TCA: { fillKey: 2, name: 'Turks and Caicos Islands', code: '796' },
   TUV: { fillKey: 2, name: 'Tuvalu', code: '798' },
