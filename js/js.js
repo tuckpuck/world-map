@@ -47,11 +47,19 @@ let map = new Datamap({
 
     for (const country of mapCountries) {
       country.addEventListener('click', function (event) {
-        // Extract info from country-config
-        let visitedStatus = JSON.parse(event.target.dataset.info).fillKey;
-        let flagURL = JSON.parse(event.target.dataset.info).flag;
-        let countryName = JSON.parse(event.target.dataset.info).name;
-        if (visitedStatus === 1) {
+        // Extract data from country-config on click
+        let eventVisitedStatus = JSON.parse(event.target.dataset.info).fillKey;
+        let eventFlagURL = JSON.parse(event.target.dataset.info).flag;
+        let eventCountryName = JSON.parse(event.target.dataset.info).name;
+
+        // Extract data from datamaps hi res on click
+        let eventCapital = event.target.__data__.properties.capital;
+        let eventCurrency = event.target.__data__.properties.currencies[0].name;
+        let eventSubregion = event.target.__data__.properties.subregion;
+        let eventLanguages = event.target.__data__.properties.languages;
+        
+        // Send API call if country is visited
+        if (eventVisitedStatus === 1) {
           console.log('send request');
           // Add API call here
         }
@@ -65,11 +73,11 @@ let map = new Datamap({
         initialCardText.style.display = 'none';
         moreInfoButton.style.display = 'inline-block';
         closeInfoButton.style.display = 'inline-block';
-        countryFlag.src = flagURL;
-        countryName.innerText = event.target.__data__.properties.name;
-        countryCapital.innerText = event.target.__data__.properties.capital;
-        countryCurrency.innerText = event.target.__data__.properties.currencies[0].name;
-        countrySubregion.innerText = event.target.__data__.properties.subregion;
+        countryFlag.src = eventFlagURL;
+        countryName.innerText = eventCountryName;
+        countryCapital.innerText = eventCapital;
+        countryCurrency.innerText = eventCurrency;
+        countrySubregion.innerText = eventSubregion;
 
         let allTimezones = [];
         event.target.__data__.properties.timezones.forEach(function (zone) {
@@ -82,7 +90,7 @@ let map = new Datamap({
         }
 
         let allLanguages = [];
-        event.target.__data__.properties.languages.forEach(function (language) {
+        eventLanguages.forEach(function (language) {
           allLanguages.push(language.name);
         });
         if (allLanguages.length === 1) {
@@ -99,6 +107,7 @@ let map = new Datamap({
     console.log('Visied country count:', visitedCountryCount);
     console.log('All countries with flag value:', allFlagValues);
     console.log('datamap', datamap);
+    console.log(countryInfoItemArray);
 
   }, // Callback when the map is done drawing
   fills: {
