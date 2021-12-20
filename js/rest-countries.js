@@ -60,7 +60,7 @@
       hr: 'Afganistan',
       fa: 'افغانستان',
     },
-    flag: 'rest-country',
+    flag: 'https://restcountries.eu/data/afg.svg',
     regionalBlocs: [
       {
         acronym: 'SAARC',
