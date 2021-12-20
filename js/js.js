@@ -10,6 +10,8 @@ let map = new Datamap({
   done: function (datamap) {
     let allCountryCount = Object.keys(datamap.options.data).length;
     let allCountries = Object.values(datamap.options.data);
+    let allFlagValues = datamap;
+    console.log(allFlagValues);
     let visitedCountries = allCountries.filter(function (item) {
       return item.fillKey === 1;
     });
@@ -66,8 +68,6 @@ let map = new Datamap({
         countryCapital.innerText = event.target.__data__.properties.capital;
         countryCurrency.innerText = event.target.__data__.properties.currencies[0].name;
         countrySubregion.innerText = event.target.__data__.properties.subregion;
-
-        console.log(event.target.__data__.properties.flag);
 
         let allTimezones = [];
         event.target.__data__.properties.timezones.forEach(function (zone) {
