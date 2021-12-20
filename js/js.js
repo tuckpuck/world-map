@@ -67,6 +67,8 @@ let map = new Datamap({
         countryCurrency.innerText = event.target.__data__.properties.currencies[0].name;
         countrySubregion.innerText = event.target.__data__.properties.subregion;
 
+        console.log(event.target.__data__.properties.flag);
+
         let allTimezones = [];
         event.target.__data__.properties.timezones.forEach(function (zone) {
           allTimezones.push(zone);
