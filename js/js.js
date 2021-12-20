@@ -10,6 +10,9 @@ let map = new Datamap({
   done: function (datamap) {
     let allCountryCount = Object.keys(datamap.options.data).length;
     let allCountries = Object.values(datamap.options.data);
+    let visitedCountries = allCountries.filter(function (item) {
+      return item.fillKey === 1;
+    });
     let visitedCountryCount = 0;
     for (const country of allCountries) {
       if (country.fillKey === 1) {
@@ -85,6 +88,11 @@ let map = new Datamap({
         }
       });
     }
+    // Console logs for debug
+    console.log('All countries and regions:', allCountries);
+    console.log('All countries and region count:', allCountryCount);
+    console.log('visited countries:', visitedCountries);
+    console.log('Visied country count:', visitedCountryCount);
   }, // Callback when the map is done drawing
   fills: {
     defaultFill: '#dcdee2',
