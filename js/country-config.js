@@ -1,5 +1,5 @@
 let data = {
-  AFG: { fillKey: 2, name: 'Afghanistan', code: '004' },
+  AFG: { fillKey: 2, name: 'Afghanistan', code: '004', flag: 'flags/afghanistan.svg' },
   ALA: { fillKey: 2, name: 'Åland Islands', code: '248' },
   ALB: { fillKey: 2, name: 'Albania', code: '008' },
   DZA: { fillKey: 2, name: 'Algeria', code: '012' },

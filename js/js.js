@@ -10,8 +10,11 @@ let map = new Datamap({
   done: function (datamap) {
     let allCountryCount = Object.keys(datamap.options.data).length;
     let allCountries = Object.values(datamap.options.data);
-    let allFlagValues = datamap;
-    console.log(allFlagValues);
+    let allFlagValues = allCountries.map(function (item) {
+      if (item.flag) {
+        return { country: item.name, flag: item.flag }
+      }
+    });
     let visitedCountries = allCountries.filter(function (item) {
       return item.fillKey === 1;
     });
@@ -44,18 +47,17 @@ let map = new Datamap({
 
     for (const country of mapCountries) {
       country.addEventListener('click', function (event) {
+        // Extract info from country-config
         let visitedStatus = JSON.parse(event.target.dataset.info).fillKey;
-
+        let flagURL = JSON.parse(event.target.dataset.info).flag;
+        let countryName = JSON.parse(event.target.dataset.info).name;
         if (visitedStatus === 1) {
           console.log('send request');
           // Add API call here
         }
-      });
 
-      country.addEventListener('click', function (event) {
         card.style.display = 'block';
         card.style.width = '240px';
-        let visitedStatus = JSON.parse(event.target.dataset.info).fillKey;
         countryInfoItemArray.forEach((item) => {
           item.style.display = 'block';
         });
@@ -63,7 +65,7 @@ let map = new Datamap({
         initialCardText.style.display = 'none';
         moreInfoButton.style.display = 'inline-block';
         closeInfoButton.style.display = 'inline-block';
-        countryFlag.src = event.target.__data__.properties.flag;
+        countryFlag.src = flagURL;
         countryName.innerText = event.target.__data__.properties.name;
         countryCapital.innerText = event.target.__data__.properties.capital;
         countryCurrency.innerText = event.target.__data__.properties.currencies[0].name;
@@ -95,6 +97,9 @@ let map = new Datamap({
     console.log('All countries and region count:', allCountryCount);
     console.log('visited countries:', visitedCountries);
     console.log('Visied country count:', visitedCountryCount);
+    console.log('All countries with flag value:', allFlagValues);
+    console.log('datamap', datamap);
+
   }, // Callback when the map is done drawing
   fills: {
     defaultFill: '#dcdee2',
