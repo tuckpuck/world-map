@@ -125,17 +125,6 @@ let map = new Datamap({
     borderColor: '#FCFCFC',
     popupTemplate: function (geography, data) {
       // This function should just return a string
-      let languages = [];
-      let formattedLanguage = '';
-      event.target.__data__.properties.languages.forEach(function (language) {
-        languages.push(language.name);
-      });
-      if (languages.length === 1) {
-        formattedLanguage = languages.join('');
-      } else if (languages.length > 1) {
-        formattedLanguage = languages.join(', ');
-      }
-
       return `
     <div class="hoverinfo">
     <div id="country-info-content">
