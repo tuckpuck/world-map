@@ -12,7 +12,7 @@ let map = new Datamap({
     let allCountries = Object.values(datamap.options.data);
     let allFlagValues = allCountries.map(function (item) {
       if (item.flag) {
-        return { country: item.name, flag: item.flag }
+        return { country: item.name, flag: item.flag };
       }
     });
     let visitedCountries = allCountries.filter(function (item) {
@@ -57,7 +57,7 @@ let map = new Datamap({
         let eventCurrency = event.target.__data__.properties.currencies[0].name;
         let eventSubregion = event.target.__data__.properties.subregion;
         let eventLanguages = event.target.__data__.properties.languages;
-        
+
         // Send API call if country is visited
         if (eventVisitedStatus === 1) {
           console.log('send request');
@@ -108,7 +108,6 @@ let map = new Datamap({
     console.log('All countries with flag value:', allFlagValues);
     console.log('datamap', datamap);
     console.log(countryInfoItemArray);
-
   }, // Callback when the map is done drawing
   fills: {
     defaultFill: '#dcdee2',
@@ -126,6 +125,8 @@ let map = new Datamap({
     borderColor: '#FCFCFC',
     popupTemplate: function (geography, data) {
       // This function should just return a string
+
+      console.log(geography);
 
       let languages = [];
       let formattedLanguage = '';
