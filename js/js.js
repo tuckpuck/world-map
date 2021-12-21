@@ -50,9 +50,9 @@ let map = new Datamap({
         // Extract data from country-config on click
         let eventVisitedStatus = JSON.parse(event.target.dataset.info).fillKey;
         let eventFlagURL = JSON.parse(event.target.dataset.info).flag;
-        let eventCountryName = JSON.parse(event.target.dataset.info).name;
 
         // Extract data from datamaps hi res on click
+        let eventCountryName = event.target.__data__.properties.name;
         let eventCapital = event.target.__data__.properties.capital;
         let eventCurrency = event.target.__data__.properties.currencies[0].name;
         let eventSubregion = event.target.__data__.properties.subregion;
@@ -125,9 +125,6 @@ let map = new Datamap({
     borderColor: '#FCFCFC',
     popupTemplate: function (geography, data) {
       // This function should just return a string
-
-      console.log(geography);
-
       let languages = [];
       let formattedLanguage = '';
       event.target.__data__.properties.languages.forEach(function (language) {
@@ -142,9 +139,9 @@ let map = new Datamap({
       return `
     <div class="hoverinfo">
     <div id="country-info-content">
-<p class="hover-country-name">${geography.properties.name}</p>
-  </div>
-  </div>`;
+    <p class="hover-country-name">${geography.properties.name}</p>
+    </div>
+    </div>`;
     },
     popupOnHover: true, // True to show the popup while hovering
     highlightOnHover: true,
