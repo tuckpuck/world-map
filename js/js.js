@@ -8,24 +8,7 @@ let map = new Datamap({
   responsive: true, // If true, call `resize()` on the map object when it should adjust it's size
   data: data,
   done: function (datamap) {
-    let allCountryCount = Object.keys(datamap.options.data).length;
-    let allCountries = Object.values(datamap.options.data);
-    let allFlagValues = allCountries.map(function (item) {
-      if (item.flag) {
-        return { country: item.name, flag: item.flag };
-      } else {
-        return { country: item.name };
-      }
-    });
-    let visitedCountries = allCountries.filter(function (item) {
-      return item.fillKey === 1;
-    });
-    let visitedCountryCount = 0;
-    for (const country of allCountries) {
-      if (country.fillKey === 1) {
-        visitedCountryCount += 1;
-      }
-    }
+    let body = document.querySelector('body');
     let card = document.querySelector('#card');
     let mapCountries = document.querySelectorAll('.datamaps-subunit');
     let cardIcons = document.querySelectorAll('.icon');
@@ -45,10 +28,31 @@ let map = new Datamap({
     let closeInfoButton = document.getElementById('close-info');
     let visitedCountryDisplay = document.getElementById('country-count');
 
+    let allCountryCount = Object.keys(datamap.options.data).length;
+    let allCountries = Object.values(datamap.options.data);
+    let allFlagValues = allCountries.map(function (item) {
+      if (item.flag) {
+        return { country: item.name, flag: item.flag };
+      } else {
+        return { country: item.name };
+      }
+    });
+    let visitedCountries = allCountries.filter(function (item) {
+      return item.fillKey === 1;
+    });
+    let visitedCountryCount = visitedCountries.length;
+
     visitedCountryDisplay.innerHTML = visitedCountryCount;
 
+    body.addEventListener('click', function (event) {
+      console.log(event.target.classList.contains('datamap'));
+      if (event.target.classList.contains('datamap')) {
+        card.style.display = 'none';
+      }
+    });
+
     for (const country of mapCountries) {
-      country.addEventListener('mouseenter', function (event) {
+      country.addEventListener('click', function (event) {
         // Extract data from country-config on click
         let eventVisitedStatus = JSON.parse(event.target.dataset.info).fillKey;
         let eventFlagURL = JSON.parse(event.target.dataset.info).flag;
