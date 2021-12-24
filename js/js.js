@@ -48,7 +48,7 @@ let map = new Datamap({
     visitedCountryDisplay.innerHTML = visitedCountryCount;
 
     for (const country of mapCountries) {
-      country.addEventListener('hover', function (event) {
+      country.addEventListener('mouseenter', function (event) {
         // Extract data from country-config on click
         let eventVisitedStatus = JSON.parse(event.target.dataset.info).fillKey;
         let eventFlagURL = JSON.parse(event.target.dataset.info).flag;
