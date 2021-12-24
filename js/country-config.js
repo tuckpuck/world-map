@@ -1,6 +1,6 @@
 let data = {
   AFG: { fillKey: 2, name: 'Afghanistan', code: '004', flag: 'flags/afghanistan.svg' },
-  ALA: { fillKey: 2, name: 'Åland Islands', code: '248', flag: 'flags/aland_island.svg' },
+  ALA: { fillKey: 2, name: 'Åland Islands', code: '248', flag: 'flags/aland_islands.svg' },
   ALB: { fillKey: 2, name: 'Albania', code: '008', flag: 'flags/albania.svg' },
   DZA: { fillKey: 2, name: 'Algeria', code: '012', flag: 'flags/algeria.svg' },
   ASM: { fillKey: 2, name: 'American Samoa', code: '016', flag: 'flags/american_samoa.svg' },

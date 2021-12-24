@@ -13,6 +13,8 @@ let map = new Datamap({
     let allFlagValues = allCountries.map(function (item) {
       if (item.flag) {
         return { country: item.name, flag: item.flag };
+      } else {
+        return { country: item.name };
       }
     });
     let visitedCountries = allCountries.filter(function (item) {
@@ -46,7 +48,7 @@ let map = new Datamap({
     visitedCountryDisplay.innerHTML = visitedCountryCount;
 
     for (const country of mapCountries) {
-      country.addEventListener('click', function (event) {
+      country.addEventListener('hover', function (event) {
         // Extract data from country-config on click
         let eventVisitedStatus = JSON.parse(event.target.dataset.info).fillKey;
         let eventFlagURL = JSON.parse(event.target.dataset.info).flag;
@@ -106,8 +108,6 @@ let map = new Datamap({
     console.log('visited countries:', visitedCountries);
     console.log('Visied country count:', visitedCountryCount);
     console.log('All countries with flag value:', allFlagValues);
-    console.log('datamap', datamap);
-    console.log(countryInfoItemArray);
   }, // Callback when the map is done drawing
   fills: {
     defaultFill: '#dcdee2',
