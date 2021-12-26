@@ -11,8 +11,6 @@ let map = new Datamap({
     let body = document.querySelector('body');
     let card = document.querySelector('#card');
     let mapCountries = document.querySelectorAll('.datamaps-subunit');
-    let cardIcons = document.querySelectorAll('.icon');
-    let iconArray = Array.from(cardIcons);
     let countryInfoItem = document.querySelectorAll('.country-info-item');
     let countryInfoItemArray = Array.from(countryInfoItem);
     let countryFlag = document.querySelector('#country-flag');
@@ -45,7 +43,6 @@ let map = new Datamap({
     visitedCountryDisplay.innerHTML = visitedCountryCount;
 
     body.addEventListener('click', function (event) {
-      console.log(event.target.classList.contains('datamap'));
       if (event.target.classList.contains('datamap')) {
         card.style.display = 'none';
       }
