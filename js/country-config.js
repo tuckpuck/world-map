@@ -27,7 +27,7 @@ let data = {
   BTN: { fillKey: 2, name: 'Bhutan', code: '064', flag: 'flags/bhutan.svg' },
   BOL: { fillKey: 2, name: 'Bolivia', code: '068', flag: 'flags/bolivia.svg' },
   BES: { fillKey: 2, name: 'Bonaire, Sint Eustatius and Saba', code: '535', flag: 'flags/bonaire.svg' },
-  BIH: { fillKey: 2, name: 'Bosnia and Herzegovina', code: '070', flag: 'flags/bosnia_and_herzegovina.svg' },
+  BIH: { fillKey: 1, name: 'Bosnia and Herzegovina', code: '070', flag: 'flags/bosnia_and_herzegovina.svg' },
   BWA: { fillKey: 2, name: 'Botswana', code: '072', flag: 'flags/botswana.svg' },
   BVT: { fillKey: 2, name: 'Bouvet Island', code: '074', flag: '' },
   BRA: { fillKey: 2, name: 'Brazil', code: '076', flag: 'flags/brazil.svg' },
