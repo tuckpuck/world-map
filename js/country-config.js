@@ -37,7 +37,7 @@ let data = {
   BFA: { fillKey: 2, name: 'Burkina Faso', code: '854', flag: 'flags/burkina_faso.svg' },
   BDI: { fillKey: 2, name: 'Burundi', code: '108', flag: 'flags/burundi.svg' },
   CPV: { fillKey: 2, name: 'Cabo Verde', code: '132', flag: 'flags/cape_verde.svg' },
-  KHM: { fillKey: 2, name: 'Cambodia', code: '116', flag: 'flags/cambodia.svg' },
+  KHM: { fillKey: 1, name: 'Cambodia', code: '116', flag: 'flags/cambodia.svg' },
   CMR: { fillKey: 2, name: 'Cameroon', code: '120', flag: 'flags/cameroon.svg' },
   CAN: { fillKey: 1, name: 'Canada', code: '124', flag: 'flags/canada.svg' },
   CYM: { fillKey: 2, name: 'Cayman Islands', code: '136', flag: 'flags/cayman_islands.svg' },
