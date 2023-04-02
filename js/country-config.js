@@ -133,7 +133,7 @@ let data = {
   MAC: { fillKey: 2, name: 'Macao', code: '446', flag: 'flags/macao.svg' },
   MDG: { fillKey: 2, name: 'Madagascar', code: '450', flag: 'flags/madagascar.svg' },
   MWI: { fillKey: 2, name: 'Malawi', code: '454', flag: 'flags/malawi.svg' },
-  MYS: { fillKey: 2, name: 'Malaysia', code: '458', flag: 'flags/malaysia.svg' },
+  MYS: { fillKey: 1, name: 'Malaysia', code: '458', flag: 'flags/malaysia.svg' },
   MDV: { fillKey: 2, name: 'Maldives', code: '462', flag: 'flags/maldives.svg' },
   MLI: { fillKey: 2, name: 'Mali', code: '466', flag: 'flags/mali.svg' },
   MLT: { fillKey: 2, name: 'Malta', code: '470', flag: 'flags/malta.svg' },
