@@ -118,7 +118,7 @@ let data = {
   KEN: { fillKey: 2, name: 'Kenya', code: '404', flag: 'flags/kenya.svg' },
   KIR: { fillKey: 2, name: 'Kiribati', code: '296', flag: 'flags/kiribati.svg' },
   PRK: { fillKey: 2, name: "Democratic People's Republic of Korea", code: '408', flag: 'flags/north_korea.svg' },
-  KOR: { fillKey: 2, name: 'Republic of Korea', code: '410', flag: 'flags/south_korea.svg' },
+  KOR: { fillKey: 1, name: 'Republic of Korea', code: '410', flag: 'flags/south_korea.svg' },
   KWT: { fillKey: 1, name: 'Kuwait', code: '414', flag: 'flags/kuwait.svg' },
   KGZ: { fillKey: 2, name: 'Kyrgyzstan', code: '417', flag: 'flags/kyrgyzstan.svg' },
   LAO: { fillKey: 1, name: "People's Democratic Republic of Lao", code: '418', flag: 'flags/laos.svg' },
