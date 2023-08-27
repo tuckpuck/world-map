@@ -237,7 +237,7 @@ let data = {
   USA: { fillKey: 1, name: 'United States of America', code: '840', flag: 'flags/united_states.svg' },
   UMI: { fillKey: 2, name: 'United States Minor Outlying Islands', code: '581', flag: 'flags/united_states.svg' },
   URY: { fillKey: 2, name: 'Uruguay', code: '858', flag: 'flags/uruguay.svg' },
-  UZB: { fillKey: 2, name: 'Uzbekistan', code: '860', flag: 'flags/uzbekistan.svg' },
+  UZB: { fillKey: 1, name: 'Uzbekistan', code: '860', flag: 'flags/uzbekistan.svg' },
   VUT: { fillKey: 2, name: 'Vanuatu', code: '548', flag: 'flags/vanuatu.svg' },
   VEN: { fillKey: 2, name: 'Venezuela (Bolivarian Republic of)', code: '862', flag: 'flags/venezuela.svg' },
   VNM: { fillKey: 1, name: 'Vietnam', code: '704', flag: 'flags/vietnam.svg' },
