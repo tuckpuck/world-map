@@ -232,7 +232,7 @@ let data = {
   TUV: { fillKey: 2, name: 'Tuvalu', code: '798', flag: 'flags/tuvalu.svg' },
   UGA: { fillKey: 2, name: 'Uganda', code: '800', flag: 'flags/uganda.svg' },
   UKR: { fillKey: 1, name: 'Ukraine', code: '804', flag: 'flags/ukraine.svg' },
-  ARE: { fillKey: 2, name: 'United Arab Emirates', code: '784', flag: 'flags/united_arab_emirates.svg' },
+  ARE: { fillKey: 1, name: 'United Arab Emirates', code: '784', flag: 'flags/united_arab_emirates.svg' },
   GBR: { fillKey: 1, name: 'United Kingdom of Great Britain and Northern Ireland', code: '826', flag: 'flags/united_kingdom.svg' },
   USA: { fillKey: 1, name: 'United States of America', code: '840', flag: 'flags/united_states.svg' },
   UMI: { fillKey: 2, name: 'United States Minor Outlying Islands', code: '581', flag: 'flags/united_states.svg' },
