@@ -218,7 +218,7 @@ let data = {
   SYR: { fillKey: 2, name: 'Syrian Arab Republic', code: '760', flag: 'flags/syria.svg' },
   TWN: { fillKey: 1, name: 'Taiwan', code: '158', flag: 'flags/taiwan.svg' },
   TJK: { fillKey: 1, name: 'Tajikistan', code: '762', flag: 'flags/tajikistan.svg' },
-  TZA: { fillKey: 2, name: 'Tanzania, United Republic of', code: '834', flag: 'flags/tanzania.svg' },
+  TZA: { fillKey: 1, name: 'Tanzania, United Republic of', code: '834', flag: 'flags/tanzania.svg' },
   THA: { fillKey: 1, name: 'Thailand', code: '764', flag: 'flags/thailand.svg' },
   TLS: { fillKey: 2, name: 'Timor-Leste', code: '626', flag: 'flags/timor_leste.svg' },
   TGO: { fillKey: 2, name: 'Togo', code: '768', flag: 'flags/togo.svg' },
