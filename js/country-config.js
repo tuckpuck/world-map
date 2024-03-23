@@ -70,7 +70,7 @@ let data = {
   ERI: { fillKey: 2, name: 'Eritrea', code: '232', flag: 'flags/eritrea.svg' },
   EST: { fillKey: 2, name: 'Estonia', code: '233', flag: 'flags/estonia.svg' },
   SWZ: { fillKey: 2, name: 'Eswatini', code: '748', flag: 'flags/eswatini.svg' },
-  ETH: { fillKey: 2, name: 'Ethiopia', code: '231', flag: 'flags/ethiopia.svg' },
+  ETH: { fillKey: 1, name: 'Ethiopia', code: '231', flag: 'flags/ethiopia.svg' },
   FLK: { fillKey: 2, name: 'Falkland Islands (Malvinas)', code: '238', flag: 'flags/falkland_islands.svg' },
   FRO: { fillKey: 2, name: 'Faroe Islands', code: '234', flag: 'flags/faroe_islands.svg' },
   FJI: { fillKey: 1, name: 'Fiji', code: '242', flag: 'flags/fiji.svg' },
