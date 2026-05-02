@@ -146,7 +146,7 @@ let data = {
   FSM: { fillKey: 2, name: 'Federated States of Micronesia', code: '583', flag: 'flags/federated_states_of_micronesia.svg' },
   MDA: { fillKey: 1, name: 'Republic of Moldova', code: '498', flag: 'flags/moldova.svg' },
   MCO: { fillKey: 1, name: 'Monaco', code: '492', flag: 'flags/monaco.svg' },
-  MNG: { fillKey: 2, name: 'Mongolia', code: '496', flag: 'flags/mongolia.svg' },
+  MNG: { fillKey: 1, name: 'Mongolia', code: '496', flag: 'flags/mongolia.svg' },
   MNE: { fillKey: 1, name: 'Montenegro', code: '499', flag: 'flags/montenegro.svg' },
   MSR: { fillKey: 2, name: 'Montserrat', code: '500', flag: 'flags/montserrat.svg' },
   MAR: { fillKey: 1, name: 'Morocco', code: '504', flag: 'flags/morocco.svg' },
