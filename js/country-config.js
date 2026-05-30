@@ -81,7 +81,7 @@ let data = {
   ATF: { fillKey: 2, name: 'French Southern Territories', code: '260', flag: 'flags/french_southern_and_antarctic_lands.svg' },
   GAB: { fillKey: 2, name: 'Gabon', code: '266', flag: 'flags/gabon.svg' },
   GMB: { fillKey: 2, name: 'Gambia', code: '270', flag: 'flags/gambia.svg' },
-  GEO: { fillKey: 2, name: 'Georgia', code: '268', flag: 'flags/georgia.svg' },
+  GEO: { fillKey: 1, name: 'Georgia', code: '268', flag: 'flags/georgia.svg' },
   DEU: { fillKey: 1, name: 'Germany', code: '276', flag: 'flags/germany.svg' },
   GHA: { fillKey: 2, name: 'Ghana', code: '288', flag: 'flags/ghana.svg' },
   GIB: { fillKey: 2, name: 'Gibraltar', code: '292', flag: 'flags/gibraltar.svg' },
